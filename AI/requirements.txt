@@ -13,3 +13,5 @@ sentence-transformers
 requests
 numpy
 scipy
+langgraph
+json-repair

@@ -15,6 +15,9 @@ interface Question {
     options: string[];
     answer: string;
     explanation: string;
+    a?: number;
+    b?: number;
+    c?: number;
 }
 
 interface Exam {
@@ -80,9 +83,14 @@ export default function ReviewPage() {
             options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
             answer: "Đáp án A",
             explanation: "",
+            a: 1.0,
+            b: 0.0,
+            c: 0.25,
         };
-        setQuestions([...questions, blank]);
-        setTimeout(() => startEdit(questions.length), 50);
+        const newQuestions = [...questions, blank];
+        setQuestions(newQuestions);
+        setEditingIdx(newQuestions.length - 1);
+        setEditBuf({ ...blank, options: [...blank.options] });
     };
 
     const saveExam = async () => {
@@ -237,6 +245,38 @@ export default function ReviewPage() {
                                     value={editBuf.explanation}
                                     onChange={(e) => setEditBuf({ ...editBuf, explanation: e.target.value })}
                                 />
+                                <div className="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label className="text-xs text-slate-500 mb-1 block">Mức độ nhận thức (Thang Bloom)</label>
+                                        <select
+                                            className="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none"
+                                            value={
+                                                editBuf.b === undefined ? "Thông hiểu" :
+                                                editBuf.b < -0.5 ? "Nhận biết" :
+                                                editBuf.b > 0.5 ? "Vận dụng" : "Thông hiểu"
+                                            }
+                                            onChange={(e) => {
+                                                let bVal = 0;
+                                                if (e.target.value === "Nhận biết") bVal = -1.0;
+                                                if (e.target.value === "Thông hiểu") bVal = 0.0;
+                                                if (e.target.value === "Vận dụng") bVal = 1.0;
+                                                setEditBuf({ ...editBuf, b: bVal });
+                                            }}
+                                        >
+                                            <option value="Nhận biết">Nhận biết (Dễ)</option>
+                                            <option value="Thông hiểu">Thông hiểu (Trung bình)</option>
+                                            <option value="Vận dụng">Vận dụng (Khó)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-slate-500 mb-1 block">Loại câu hỏi</label>
+                                        <select
+                                            className="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none"
+                                        >
+                                            <option>Trắc nghiệm 4 lựa chọn</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div className="flex gap-2">
                                     <button onClick={saveEdit} className="flex items-center gap-1 px-4 py-2 rounded-xl bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
                                         <Save className="w-3.5 h-3.5" /> Xong
@@ -249,13 +289,23 @@ export default function ReviewPage() {
                         ) : (
                             /* View mode */
                             <div className="space-y-3">
-                                {q.topic && (
-                                    <div className="mb-2">
+                                <div className="mb-2 flex items-center gap-2 flex-wrap">
+                                    {q.topic && (
                                         <span className="inline-block px-2.5 py-1 bg-purple-50 text-purple-600 text-[11px] uppercase tracking-wider font-bold rounded-lg border border-purple-100">
                                             {q.topic}
                                         </span>
-                                    </div>
-                                )}
+                                    )}
+                                    {q.b !== undefined && (
+                                        <span className={cn(
+                                            "inline-flex items-center px-2.5 py-1 text-[11px] uppercase tracking-wider font-bold rounded-lg border",
+                                            q.b < -0.5 ? "bg-emerald-50 text-emerald-600 border-emerald-100" :
+                                            q.b > 0.5 ? "bg-rose-50 text-rose-600 border-rose-100" :
+                                            "bg-amber-50 text-amber-600 border-amber-100"
+                                        )}>
+                                            {q.b < -0.5 ? "Nhận biết" : q.b > 0.5 ? "Vận dụng" : "Thông hiểu"}
+                                        </span>
+                                    )}
+                                </div>
                                 <div className="flex items-start justify-between gap-4">
                                     <p className="font-medium text-slate-800">
                                         <span className="text-blue-500 font-bold mr-2">Câu {idx + 1}.</span>
