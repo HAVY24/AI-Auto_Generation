@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String              @id @default(uuid())
+  email         String              @unique
+  password      String
+  name          String?
+  documents     Document[]
+  exams         Exam[]
+  quizSessions  QuizSession[]
+  topicProgress UserTopicProgress[]
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+}
+
+model Document {
+  id        String   @id @default(uuid())
+  filename  String
+  path      String
+  mimetype  String
+  size      Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  exams     Exam[]
+  createdAt DateTime @default(now())
+}
+
+model Exam {
+  id         String   @id @default(uuid())
+  title      String
+  content    Json // Stores the generated exam (questions, answers, etc.)
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  document   Document @relation(fields: [documentId], references: [id])
+  documentId String
+  createdAt  DateTime @default(now())
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// KBS (Knowledge Based System) & IRT/CAT Models
+// ────────────────────────────────────────────────────────────────────────────
+
+model Subject {
+  id           String        @id @default(uuid())
+  name         String        @unique
+  description  String?       @db.Text
+  majorTopics  MajorTopic[]
+  quizSessions QuizSession[]
+}
+
+model MajorTopic {
+  id         String  @id @default(uuid())
+  subjectId  String
+  subject    Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  code       String?
+  name       String  @db.Text
+  orderIndex Int     @default(0)
+  topics     Topic[]
+}
+
+model Topic {
+  id            String              @id @default(uuid())
+  majorTopicId  String
+  majorTopic    MajorTopic          @relation(fields: [majorTopicId], references: [id], onDelete: Cascade)
+  code          String?
+  name          String              @db.Text
+  orderIndex    Int                 @default(0)
+  questions     Question[]
+  prerequisites TopicPrerequisite[] @relation("TopicHasPrerequisite")
+  requiredBy    TopicPrerequisite[] @relation("PrerequisiteForTopic")
+  topicProgress UserTopicProgress[]
+}
+
+model TopicPrerequisite {
+  id                  String @id @default(uuid())
+  topicId             String
+  prerequisiteTopicId String
+
+  topic        Topic @relation("TopicHasPrerequisite", fields: [topicId], references: [id], onDelete: Cascade)
+  prerequisite Topic @relation("PrerequisiteForTopic", fields: [prerequisiteTopicId], references: [id], onDelete: Cascade)
+
+  @@unique([topicId, prerequisiteTopicId])
+}
+
+model Question {
+  id               String  @id @default(uuid())
+  externalId       String  @unique
+  topicId          String
+  topic            Topic   @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  stem             String  @db.Text
+  optionA          String  @db.Text
+  optionB          String  @db.Text
+  optionC          String  @db.Text
+  optionD          String  @db.Text
+  correctAnswer    String
+  difficultyB      Float
+  discriminationA  Float
+  guessingC        Float
+  questionType     String
+  timeLimitSeconds Int
+  timeDisplay      String?
+  isArchived       Boolean @default(false)
+
+  responses         QuizResponse[]
+  inferenceRuleLogs InferenceRuleLog[]
+}
+
+model QuizSession {
+  id             String    @id @default(uuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subjectId      String
+  subject        Subject   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  startedAt      DateTime  @default(now())
+  completedAt    DateTime?
+  totalScore     Float?
+  thetaEstimate  Float?    @default(0)
+  sem            Float?    @default(999)
+  totalQuestions Int       @default(0)
+  correctAnswers Int       @default(0)
+
+  responses         QuizResponse[]
+  inferenceRuleLogs InferenceRuleLog[]
+}
+
+model QuizResponse {
+  id               String      @id @default(uuid())
+  sessionId        String
+  session          QuizSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  questionId       String
+  question         Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  userAnswer       String?
+  isCorrect        Boolean
+  guessingFlag     Boolean     @default(false)
+  timeSpentSeconds Int?
+  answeredAt       DateTime    @default(now())
+
+  inferenceRuleLogs InferenceRuleLog[]
+}
+
+model UserTopicProgress {
+  id                 String   @id @default(uuid())
+  userId             String
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topicId            String
+  topic              Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  thetaEstimate      Float    @default(0)
+  questionsAttempted Int      @default(0)
+  questionsCorrect   Int      @default(0)
+  masteryLevel       String   @default("beginner")
+  updatedAt          DateTime @updatedAt
+
+  @@unique([userId, topicId])
+}
+
+model InferenceRuleLog {
+  id         String        @id @default(uuid())
+  sessionId  String
+  session    QuizSession   @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  responseId String?
+  response   QuizResponse? @relation(fields: [responseId], references: [id], onDelete: SetNull)
+  questionId String?
+  question   Question?     @relation(fields: [questionId], references: [id], onDelete: SetNull)
+  ruleCode   String
+  reason     String        @db.Text
+  createdAt  DateTime      @default(now())
+}

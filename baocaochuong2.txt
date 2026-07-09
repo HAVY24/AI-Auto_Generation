@@ -1,0 +1,898 @@
+
+
+TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI PHÂN HIỆU TẠI TP. HỒ CHÍ MINH
+BỘ MÔN CÔNG NGHỆ THÔNG TIN
+
+
+
+
+
+
+
+
+
+BÁO CÁO ĐỒ ÁN TỐT NGHIỆP
+
+ĐỀ TÀI
+XÂY DỰNG HỆ THỐNG SINH ĐỀ TỰ ĐỘNG VÀ ĐÁNH GIÁ NĂNG LỰC THÍCH ỨNG ỨNG DỤNG RAG VÀ 
+THUẬT TOÁN IRT
+
+
+Giảng viên hướng dẫn: ThS. TRẦN THỊ DUNG 
+Sinh viên thực hiện: HÀ HOÀNG VỸ
+Lớp	:	CQ.63.CN.CNTT
+Khoá	:	K63
+
+
+
+
+
+TP. Hồ Chí Minh, năm 2026 
+
+
+TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI PHÂN HIỆU TẠI TP. HỒ CHÍ MINH
+BỘ MÔN CÔNG NGHỆ THÔNG TIN
+
+
+
+
+
+
+
+
+
+BÁO CÁO ĐỒ ÁN TỐT NGHIỆP
+
+ĐỀ TÀI
+XÂY DỰNG HỆ THỐNG SINH ĐỀ TỰ ĐỘNG VÀ ĐÁNH GIÁ NĂNG LỰC THÍCH ỨNG ỨNG DỤNG RAG VÀ 
+THUẬT TOÁN IRT
+
+
+Giảng viên hướng dẫn: ThS. TRẦN THỊ DUNG 
+Sinh viên thực hiện: HÀ HOÀNG VỸ
+Lớp	:	CQ.63.CN.CNTT
+Khoá	:	K63
+
+
+
+
+
+TP. Hồ Chí Minh, năm 2026 
+ 	 
+
+TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI
+PHÂN HIỆU TẠI THÀNH PHỐ HỒ CHÍ MINH	CỘNG HÒA XÃ HỘI CHỦ NGHIÃ VIỆT NAM
+
+Độc lập – Tự do – Hạnh phúc
+
+      NHIỆM VỤ THIẾT KẾ TỐT NGHIỆP
+BỘ MÔN: CÔNG NGHỆ THÔNG TIN
+***
+
+
+Mã sinh viên: 6351071082	Họ tên SV: Hà Hoàng Vỹ
+Khóa: 63	Lớp: Công nghệ thông tin
+1.	Tên đề tài
+       Xây dựng hệ thống sinh đề tự động và đánh giá năng lực thích ứng ứng dụng RAG và thuật toán IRT. 
+2.	Mục đích, yêu cầu
+Mục đích: Nghiên cứu và ứng dụng tiềm năng của kiến trúc sinh văn bản tăng cường truy xuất (RAG - Retrieval-Augmented Generation) kết hợp với Mô hình ngôn ngữ lớn (LLM) và các thuật toán Tâm trắc học (Psychometrics) trong việc tự động hóa quy trình xây dựng ngân hàng câu hỏi và đánh giá năng lực cá nhân hóa.
+Yêu cầu: Xây dựng một hệ thống nền tảng web có khả năng tiếp nhận tài liệu học thuật (định dạng PDF), tự động bóc tách và sinh câu hỏi trắc nghiệm có cấu trúc chuẩn xác, đồng thời tổ chức bài kiểm tra thích ứng (CAT) theo thời gian thực — tự động điều chỉnh độ khó của câu hỏi dựa trên năng lực của thí sinh và tổng hợp báo cáo đánh giá sự hội tụ năng lực.
+3.	Nội dung và phạm vi đề tài
+Đề tài tập trung vào thiết kế và triển khai một hệ thống tự động hóa sinh học liệu và đánh giá năng lực trực tuyến, phục vụ cho các môn học chuyên ngành Công nghệ Thông tin (như Cơ sở dữ liệu, Toán rời rạc). Nội dung nghiên cứu bao gồm: nghiên cứu lý thuyết về kiến trúc RAG, kỹ thuật xử lý ngôn ngữ tự nhiên (Prompt Engineering, Batch Chunking), Lý thuyết Đáp ứng Câu hỏi (IRT), thuật toán Kiểm tra Thích ứng trên Máy tính (CAT), và các công nghệ nền tảng cốt lõi như Llama-3, FastAPI (Python), Next.js, Prisma (PostgreSQL), và ChromaDB.
+Các giai đoạn thực hiện bao gồm: phân tích bài toán giới hạn của các kỳ thi tĩnh truyền thống, thiết kế hệ thống theo Kiến trúc Lục giác (Hexagonal Architecture), xây dựng RAG Pipeline tích hợp cơ chế tự phục hồi định dạng dữ liệu (Dynamic JSON Repair), phát triển thuật toán CAT dựa trên mô hình Bayesian EAP và Maximum Fisher Information, và đánh giá hiệu quả tính toán sai số chuẩn (SEM) trên các kịch bản thi thực tế.
+Phạm vi đề tài giới hạn ở việc xử lý dữ liệu đầu vào là các tài liệu dạng văn bản (text-based PDF), sử dụng LLM mã nguồn mở (Llama-3) cho các tác vụ bóc tách, sinh học liệu và khởi tạo thông số IRT (Zero-shot Parameterization), đồng thời mô phỏng quá trình kiểm tra đánh giá hoàn toàn trên nền tảng ứng dụng web.
+4.	Công nghệ, công cụ và ngôn ngữ lập trình
+	Llama-3 (Meta): Mô hình ngôn ngữ lớn đóng vai trò sinh học liệu tự động và khởi tạo các tham số IRT (độ khó, độ phân biệt).
+	LangChain: Framework điều phối luồng dữ liệu RAG, băm nhỏ tài liệu PDF và quản lý Prompt.
+	ChromaDB: Cơ sở dữ liệu Vector lưu trữ dữ liệu nhúng (Embeddings) và truy xuất ngữ nghĩa bằng thuật toán Cosine Similarity.
+	FastAPI (Python): Xây dựng Backend API chuyên xử lý các tác vụ AI bất đồng bộ và tính toán toán học.
+	Node.js: Máy chủ xử lý logic nghiệp vụ, quản lý phiên thi trực tuyến và chạy thuật toán kiểm tra thích ứng (CAT).
+	PostgreSQL & Prisma: Hệ quản trị cơ sở dữ liệu lưu trữ dữ liệu giáo dục, kết hợp ORM để ánh xạ kiểu dữ liệu an toàn.
+	Next.js: Framework React xây dựng giao diện Frontend hiển thị câu hỏi và bài thi mượt mà theo thời gian thực.
+	TypeScript: Ngôn ngữ lập trình chính giúp kiểm soát lỗi kiểu dữ liệu chặt chẽ cho cả Frontend và Backend.
+	Docker: Nền tảng đóng gói các dịch vụ hệ thống thành Container để dễ dàng triển khai và mở rộng nhất quán.
+5.	Các kết quả chính dự kiến sẽ đạt được và ứng dụng
+Kết quả: Một nền tảng giáo dục trực tuyến hoàn chỉnh có khả năng tự động hóa xuyên suốt từ khâu nạp tài liệu PDF đến xuất báo cáo đánh giá. Khả năng tự động bóc tách ngữ nghĩa và sinh ngân hàng câu hỏi chuẩn định dạng JSON thông qua kiến trúc RAG phân lô kết hợp mô hình ngôn ngữ lớn. Việc áp dụng LLM để dự đoán và khởi tạo các thông số toán học IRT thay cho quy trình thử nghiệm thủ công khổng lồ cũng đã được triển khai thành công. Điểm sáng của dự án là một bộ máy kiểm tra thích ứng (CAT) chạy độc lập, tính toán năng lực thí sinh theo thời gian thực dựa trên thuật toán Bayesian EAP và Fisher Information. Cuối cùng, dự án xuất ra các báo cáo cá nhân hóa qua biểu đồ hội tụ năng lực, kèm theo những minh chứng thực tế cho thấy hệ thống có khả năng cắt giảm hơn một nửa độ dài bài thi so với cách làm truyền thống mà vẫn đo lường chính xác.
+Ứng dụng: Hệ thống này hoàn toàn có thể đưa vào triển khai thực tế tại các trường đại học hoặc trung tâm đào tạo để chuyển đổi số triệt để công tác kiểm tra đánh giá. Nó giúp giảng viên thoát khỏi hàng chục giờ đồng hồ ngồi biên soạn và cân nhắc độ khó của từng đề thi thủ công. Đặc biệt hơn, hệ thống kiến tạo một môi trường kiểm tra cá nhân hóa sâu sắc, tự động nắn chỉnh mức độ câu hỏi linh hoạt để không làm học viên yếu bị ngợp, đồng thời vẫn giữ được sự gắt gao và thử thách cần thiết đối với những học viên xuất sắc.
+6.	Giáo viên và cán bộ hướng dẫn
+Họ tên: ThS. Trần Thị Dung
+Đơn vị công tác: Bộ môn Công nghệ Thông tin, Trường Đại học Giao thông Vận tải – Phân hiệu TP.HCM
+Điện thoại: 0906761014	Email: ttdung@utc2.edu.vn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Ngày	tháng 03 năm 2025 Trưởng BM Công nghệ Thông tin
+ 
+Đã giao nhiệm vụ TKTN
+Giảng viên hướng dẫn
+ 
+
+
+
+
+
+
+
+ThS. Trần Phong Nhã	ThS. Trần Thị Dung
+
+Đã nhận nhiệm vụ TKTN
+Sinh viên: Hà Hoàng Vỹ	Ký tên:
+Điện thoại: 0862346461	Email: 6351071082@gmail.com 
+LỜI CẢM ƠN
+
+Sau quá trình học tập, nghiên cứu và thực hiện Đồ án Tốt nghiệp, em đã nhận được rất nhiều sự quan tâm, hỗ trợ và động viên quý báu từ các thầy cô, gia đình và bạn bè. Đây chính là nguồn động lực to lớn giúp em hoàn thành đề tài một cách tốt nhất. Nhân dịp hoàn thành đồ án, em xin được bày tỏ lòng biết ơn sâu sắc đến tất cả những người đã đồng hành cùng em trong suốt chặng đường vừa qua.
+Trước hết, em xin gửi lời tri ân chân thành và sâu sắc nhất đến cô ThS. Trần Thị Dung, người đã trực tiếp hướng dẫn em thực hiện đồ án. Cô không chỉ tận tình chỉ bảo, định hướng nghiên cứu mà còn luôn dành thời gian góp ý, chia sẻ những kinh nghiệm quý báu và truyền cảm hứng để em vượt qua những khó khăn trong quá trình thực hiện đề tài. Những kiến thức và sự tận tâm của cô là nền tảng quan trọng giúp em hoàn thành đồ án này.
+Em xin chân thành cảm ơn quý Thầy, Cô Bộ môn Công nghệ Thông tin – Trường Đại học Giao thông Vận tải, Phân hiệu tại Thành phố Hồ Chí Minh đã tận tâm giảng dạy, truyền đạt những kiến thức chuyên môn quý giá và tạo điều kiện thuận lợi trong suốt quá trình học tập. Những kiến thức mà quý Thầy, Cô trang bị không chỉ là hành trang cho việc thực hiện đồ án mà còn là nền tảng vững chắc cho con đường nghề nghiệp của em trong tương lai.
+Em xin bày tỏ lòng biết ơn sâu sắc đến gia đình – những người luôn bên cạnh yêu thương, động viên và là chỗ dựa tinh thần vững chắc. Sự hy sinh, tin tưởng và ủng hộ của gia đình chính là nguồn động lực lớn lao giúp em kiên trì vượt qua những thử thách trong học tập và cuộc sống.
+Bên cạnh đó, em xin gửi lời cảm ơn đến bạn bè và những người đồng hành đã luôn sẵn sàng chia sẻ kiến thức, đóng góp ý kiến, hỗ trợ và động viên em trong suốt quá trình học tập, nghiên cứu cũng như hoàn thành đề tài.
+Mặc dù đã nỗ lực hết mình trong quá trình thực hiện, song do kiến thức và kinh nghiệm còn hạn chế nên báo cáo khó tránh khỏi những thiếu sót. Em rất mong nhận được những ý kiến nhận xét và đóng góp quý báu từ Quý Thầy, Cô để đề tài được hoàn thiện hơn.
+Một lần nữa, em xin chân thành cảm ơn và kính chúc Quý Thầy, Cô cùng gia đình, bạn bè luôn mạnh khỏe, hạnh phúc và thành công.
+Em xin chân thành cảm ơn!
+ 
+NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN
+
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+...........................................................................................................................................
+
+
+TP. Hồ Chí Minh, ngày ….… tháng ….… năm ….…
+Giảng viên hướng dẫn
+
+
+
+
+
+
+ThS. Trần Thị Dung 
+MỤC LỤC
+
+ 
+
+NHIỆM VỤ THIẾT KẾ TỐT NGHIỆP	iii
+LỜI CẢM ƠN	vii
+NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN	viii
+MỤC LỤC	ix
+DANH MỤC CHỮ VIẾT TẮT	xiii
+DANH MỤC SƠ ĐỒ, HÌNH VẼ	xv
+DANH MỤC BẢNG BIỂU	xvi
+TỔNG QUAN	17
+1. Tổng quan đề tài	17
+2. Mục tiêu nghiên cứu	19
+3. Phạm vi	19
+4. Ý nghĩa khoa học và thực tiễn	20
+CHƯƠNG 1. CƠ SỞ LÝ THUYẾT	22
+1.1 Tổng quan về kiểm tra đánh giá và ứng dụng AI trong giáo dục	22
+1.1.1 Các hạn chế phổ biến của kỳ thi tĩnh và phương pháp sinh đề truyền thống	22
+1.1.2 Quy trình Khảo thí và Đánh giá Thích ứng	23
+1.1.3 Các nền tảng Khảo thí và Sinh đề tự động truyền thống	25
+1.1.4 Cơ sở toán học của Khảo thí Thích ứng	27
+1.2	Mô hình ngôn ngữ lớn	29
+1.2.1 Mô hình GPT-4o và họ mô hình Llama-3	31
+1.2.2 Kỹ thuật Prompt Engineering	32
+1.3 Hệ thống đa tác tử	34
+1.3.1  Khái niệm và đặc điểm	34
+1.3.2 Framework Langchain & LangGraph	35
+1.3.3 Thiết kế luồng điều phối	37
+1.4 Phân tích và xử lý dữ liệu phi cấu trúc	39
+1.4.1 Cấu trúc định dạng dữ liệu JSON sinh học liệu	39
+1.4.2. Các trường dữ liệu cốt lõi và tham số	40
+1.4.3 Mối quan hệ phụ thuộc ngữ nghĩa trong mô hình RAG	41
+1.5. Công cụ và thư viện hỗ trợ	41
+CHƯƠNG 2. PHÂN TÍCH THIẾT KẾ HỆ THỐNG	43
+2.1	Yêu cầu hệ thống	43
+2.1.1 Yêu cầu chức năng	43
+2.1.2 Yêu cầu phi chức năng	44
+2.2 Kiến trúc tổng thể hệ thống	45
+2.3 Thiết kế chi tiết từng agent	48
+2.3.1 Ingestion & RAG Agent	48
+2.3.2 Generator Agent	50
+2.3.3 Validator Agent	51
+2.3.4 CAT Engine & Reporting Agent	52
+2.4 Thiết kế State	53
+CHƯƠNG 3: XÂY DỰNG HỆ THỐNG & ĐÁNH GIÁ KẾT QUẢ	55
+3.1 Môi trường triển khai	55
+3.2  Cài đặt môi trường	55
+3.3 Cài đặt luồng thuật toán Khảo thí Thích ứng (CAT Engine)	56
+3.4 Triển khai giao diện và kết quả chạy thực tế	57
+3.4.1 Giao diện nạp tài liệu và khởi tạo RAG	57
+3.4.2 Kết quả xây dựng ngân hàng câu hỏi tự động	58
+3.4.3 Giao diện làm bài thi truyền thống	59
+3.4.4 Giao diện làm bài khảo thí thích ứng	60
+3.4.5 Báo cáo phân tích năng lực và Biểu đồ hội tụ	61
+3.5 Chiến lược kiểm thử	62
+3.5.1 Kiểm thử đơn vị	63
+3.5.2 Kiểm thử tích hợp	63
+3.6 Bộ dữ liệu kiểm thử	64
+3.7 Kịch bản kiểm thử và kết quả	64
+3.8 Đánh giá hiệu quả xử lý hệ thống	64
+3.9 Phân tích và thảo luận kết quả	65
+3.9.1 Điểm mạnh của kiến trúc Multi-Agent	65
+3.9.2 Hạn chế và hướng cải thiện	66
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN TƯƠNG LAI	68
+1 Kết luận	68
+1.1 Tổng kết đề tài	68
+1.2 Những kết quả đạt được	68
+2 Hướng phát triển trong tương lai	69
+2.1 Hoàn thiện thuật toán rà soát để ngăn chặn triệt để ảo giác	69
+2.2 Cải thiện tính độc lập của các phương án nhiễu	69
+2.3 Bổ sung kiểm tra đồ thị hình học đặc trưng (ICC)	69
+2.4 Mở rộng đa dạng hóa định dạng học liệu	70
+2.5 Triển khai mô hình Học tăng cường (Reinforcement Learning)	70
+2.6 Tích hợp hệ thống vào hệ sinh thái Quản lý học tập (LMS)	70
+TÀI LIỆU THAM KHẢO	71
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+DANH MỤC CHỮ VIẾT TẮT
+
+STT	Mô tả	Diễn giải	Ý nghĩa
+1	AI	Artificial Intelligence	Trí tuệ nhân tạo
+2	LLM	Large Language Model	Mô hình ngôn ngữ lớn (ví dụ: Llama-3, GPT)
+3	RAG	Retrieval-Augmented Generation	Sinh văn bản tăng cường truy xuất
+4	IRT	Item Response Theory	Lý thuyết đáp ứng câu hỏi (Tâm trắc học)
+5	CAT	Computerized Adaptive Testing	Kiểm tra đánh giá thích ứng trên máy tính
+6	AIG	Automated Item Generation	Tự động sinh câu hỏi trắc nghiệm
+7	EAP	Expected A Posteriori	Ước lượng hậu nghiệm kỳ vọng (Thuật toán Bayes)
+8	MFI	Maximum Fisher Information	Hàm thông tin Fisher cực đại
+9	SEM	Standard Error of Measurement	Sai số chuẩn của phép đo (Điều kiện dừng CAT)
+10	NLP	Natural Language Processing	Xử lý ngôn ngữ tự nhiên
+11	Prompt	Không viết tắt	Câu lệnh, đầu vào điều khiển mô hình AI
+12	Hallucination	Không viết tắt	Hiện tượng AI sinh ra thông tin sai lệch, bịa đặt
+13	JSON	JavaScript Object Notation	Định dạng dữ liệu văn bản máy tính dễ đọc/ghi
+14	API	Application Programming Interface	Giao diện lập trình ứng dụng
+15	ORM	Object-Relational Mapping	Kỹ thuật ánh xạ cơ sở dữ liệu quan hệ (Prisma)
+16	SSR	Server-Side Rendering	Kết xuất trang web phía máy chủ (Next.js)
+17	PDF	Portable Document Format	Định dạng tài liệu văn bản di động
+18	HTTP	HyperText Transfer Protocol	Giao thức truyền tải siêu văn bản trên 
+19	LMS	Learning Management System	Hệ thống quản lý học tập
+ 
+DANH MỤC SƠ ĐỒ, HÌNH VẼ
+
+Hình 1.1: Hệ thống quản lý học tập Moodle	26
+Hình 1.2: Nền tảng khảo thí Questionmark	26
+Hình 1.3: Phần mềm Quizlet	27
+Hình 2.1: Biểu đồ Use-Case	43
+Hình 2.2: Kiến trúc tổng thể	46
+Hình 2.3: Biểu đồ Tuần tự (Sequence Diagram) cho luồng làm bài thi	46
+Hình 2.4: Cấu trúc luồng xử lý dữ liệu và suy luận ngữ nghĩa của Ingestion & RAG Agent	49
+Hình 2.5: Luồng xử lý của Generator Agent	51
+Hình 2.6: Cơ chế kiểm duyệt đa tầng (Multi-tier Validation) của Validator Agent	52
+Hình 2.7: Luồng thực thi thuật toán thích ứng (CAT) và sinh báo cáo của hệ thống	53
+Hình 2.8: Luồng tương tác qua Trạng thái Hệ thống	54
+Hình 3.1: Giao diện tải tài liệu PDF và khởi tạo dữ liệu RAG	58
+Hình 3.2: Danh sách câu hỏi trắc nghiệm và các thông số IRT được sinh tự động	59
+Hình 3.3: Giao diện làm bài thi trắc nghiệm theo phương thức truyền thống	60
+Hình 3.4: Giao diện làm bài thi thích ứng và tính năng phản hồi kết quả tức thời	61
+Hình 3.5: Báo cáo kết quả và Biểu đồ lịch sử hội tụ năng lực (Theta)	62
+ 
+DANH MỤC BẢNG BIỂU
+
+Bảng 1.1 Lợi ích và Thách thức của Tự động hóa Kiểm thử	7
+Bảng 1.2 So sánh các Công cụ Kiểm thử E2E	8
+Bảng 1.3 Ma trận đánh giá hiệu năng và chất lượng	20
+Bảng 2.1 Mô Tả Các Node Chính trong Workflow N8N	24
+Bảng 2.2 Thiết kế prompt cho Agent sinh testcase	29
+Bảng 2.3 Thiết kế prompt cho Agent sinh script	30
+Bảng 2.4 Phân tích rủi ro hệ thống	34
+Bảng 3.1 Testcase thủ công cho chức năng đăng nhập	45
+Bảng 3.2 Testcase tự động cho chức năng đăng nhập	46
+Bảng 3.3 Testcase thủ công cho chức năng “Thêm nhân viên”	48
+Bảng 3.4 Testcase tự động cho chức năng “Thêm nhân viên”	49
+ 
+TỔNG QUAN
+
+1. Tổng quan đề tài
+Trong những năm gần đây, giáo dục số và các nền tảng học trực tuyến (E-learning) đang trải qua sự chuyển dịch mạnh mẽ hướng tới mô hình học tập cá nhân hóa. Trong hệ sinh thái này, công tác kiểm tra và đánh giá năng lực đóng vai trò là thước đo trung tâm để định chuẩn kiến thức và định hướng lộ trình học tập cho học viên. Sự bùng nổ của các kho học liệu số, tài liệu chuyên ngành và các khóa học mở đại chúng đã khiến nhu cầu tổ chức các kỳ thi và kiểm tra định kỳ ngày càng gia tăng với tốc độ chóng mặt.
+Tuy nhiên, việc đánh giá năng lực dựa trên các bài thi tĩnh truyền thống đang bộc lộ nhiều điểm yếu chí mạng. Khác với mô hình đánh giá động, bài thi tĩnh buộc mọi thí sinh phải làm chung một bộ câu hỏi cố định. Điều này dẫn đến hiện tượng "hiệu ứng trần và sàn" (ceiling and floor effects): những học viên xuất sắc không được thử thách đúng mức gây ra sự nhàm chán, trong khi những học viên yếu kém lại bị choáng ngợp bởi hàng loạt câu hỏi vượt quá khả năng [1]. Hệ quả là điểm số cuối cùng không phản ánh chính xác năng lực thực ẩn của người học, làm giảm đi giá trị cốt lõi của công tác giáo dục.
+Để giải quyết bài toán này, các cơ sở đào tạo thường phải huy động đội ngũ giảng viên để liên tục xây dựng và làm mới ngân hàng câu hỏi. Tuy nhiên, phương pháp thủ công này vẫn tồn tại rất nhiều hạn chế.
+Thứ nhất, quá trình biên soạn đề thi đòi hỏi giảng viên phải đọc hiểu sâu tài liệu chuyên ngành, tự suy nghĩ ra các câu hỏi, thiết kế các phương án nhiễu hợp lý và tự ước lượng độ khó cho từng câu. Công việc này tiêu tốn một lượng thời gian và sức lực khổng lồ, đặc biệt đối với các môn học đặc thù có lượng kiến thức đồ sộ.
+Thứ hai, chất lượng của ngân hàng câu hỏi phụ thuộc hoàn toàn vào kinh nghiệm chủ quan của người ra đề. Hai giảng viên khác nhau có thể đánh giá độ khó của cùng một câu hỏi hoàn toàn khác nhau, dẫn đến sự thiếu đồng nhất trong hệ thống đo lường và làm giảm tính khách quan của kỳ thi.
+Thứ ba, các công cụ tạo đề thi tự động trên các nền tảng LMS hiện nay thực chất chỉ là xáo trộn ngẫu nhiên câu hỏi từ một ngân hàng tĩnh có sẵn. Chúng không có khả năng đọc hiểu ngữ nghĩa từ các tài liệu mới để tự động sinh ra kiến thức mới, do đó ngân hàng đề rất nhanh bị cạn kiệt và lỗi thời.
+Cuối cùng, khi quy mô đào tạo mở rộng lên tới hàng ngàn sinh viên, việc duy trì một hệ thống kiểm tra thủ công trở nên quá tải. Các tổ chức giáo dục đang khao khát một giải pháp có khả năng tự động hóa toàn trình từ khâu đọc hiểu học liệu, sinh câu hỏi đến khâu tổ chức đánh giá phân loại thí sinh mà vẫn đảm bảo tính chính xác học thuật.
+Sự phát triển đột phá của các mô hình ngôn ngữ lớn (LLM) đã mở ra những cơ hội chưa từng có trong lĩnh vực công nghệ giáo dục. Với khả năng hiểu ngôn ngữ tự nhiên, phân tích tài liệu kỹ thuật phức tạp và suy luận ngữ cảnh sâu, AI có tiềm năng hỗ trợ tự động hóa toàn bộ quy trình xây dựng ngân hàng học liệu.
+Thay vì yêu cầu giảng viên phải tự đọc giáo trình, hệ thống AI kết hợp kiến trúc RAG có thể tự động đọc các tài liệu PDF, bóc tách các khái niệm trọng tâm và tự động sinh ra các câu hỏi trắc nghiệm rải đều theo thang nhận thức Bloom. Không những vậy, sự can thiệp của AI còn có thể dự đoán và khởi tạo trực tiếp các tham số toán học đại diện cho độ khó của câu hỏi, tạo tiền đề để đo lường xác suất.
+Đặc biệt, khi ngân hàng câu hỏi AI kết hợp với thuật toán Kiểm tra Thích ứng trên Máy tính, hệ thống có thể tạo ra một vòng lặp đánh giá thông minh: tự động phân tích câu trả lời hiện tại của thí sinh để tính toán lại mức năng lực thực, từ đó bốc ra câu hỏi tiếp theo có độ khó cực kỳ vừa vặn. Cách tiếp cận này giúp rút ngắn thời gian làm bài, loại bỏ sự cào bằng trong giáo dục và nâng cao độ tin cậy của bài kiểm tra.
+Tuy nhiên, các nghiên cứu hiện nay trên thế giới vẫn chưa giải quyết triệt để bài toán làm sao để LLM sinh ra dữ liệu có định dạng cấu trúc hoàn hảo 100% (không bị vỡ JSON do ảo giác), cũng như chưa có nhiều hệ thống kết hợp thành công giữa AI sinh tạo và các thuật toán đo lường Tâm trắc học (IRT/CAT) thành một đường ống duy nhất. Đây chính là khoảng trống nghiên cứu mà đề tài hướng tới giải quyết thông qua việc xây dựng hệ thống sinh đề tự động hướng đến mục tiêu số hóa và cá nhân hóa toàn diện công tác kiểm tra đánh giá trong giáo dục.
+2. Mục tiêu nghiên cứu
+Đề tài hướng đến các mục tiêu sau:
+	Xây dựng một pipeline tự động hóa hoàn toàn quy trình sinh học liệu và kiểm tra đánh giá, bao gồm các giai đoạn: bóc tách tài liệu chuyên ngành, phân tích ngữ nghĩa, tự động sinh ngân hàng câu hỏi, và tổ chức bài thi thích ứng (CAT) theo thời gian thực.
+	Tích hợp kiến trúc RAG và Mô hình ngôn ngữ lớn (LLM) vào hệ thống để thay thế con người trong việc suy luận ngữ cảnh, kiến tạo các phương án nhiễu (distractors) chặt chẽ và khởi tạo cấu trúc dữ liệu JSON hoàn chỉnh cho từng câu hỏi.
+	Giảm thiểu sự phụ thuộc vào đội ngũ giảng viên và chuyên gia giáo dục trong công tác ra đề và định lượng độ khó; từ đó tiết kiệm tối đa chi phí, nhân lực và thời gian vận hành cho các cơ sở đào tạo.
+	Nâng cao độ chính xác và tính khách quan trong việc đo lường năng lực học viên, đặc biệt thông qua việc ứng dụng các thuật toán Tâm trắc học (IRT) và phương pháp ước lượng Bayesian (EAP) để tự động điều hướng độ khó của đề thi thay vì sử dụng các bài thi tĩnh truyền thống.
+Thông qua đó, đề tài kỳ vọng xây dựng được một nền tảng giáo dục trực tuyến mang tính đột phá với khả năng tự động hóa và cá nhân hóa cao, hỗ trợ đắc lực cho xu hướng chuyển đổi số toàn diện trong công tác khảo thí hiện đại.
+3. Phạm vi
+Đề tài tập trung nghiên cứu và xây dựng hệ thống tự động sinh học liệu và đánh giá năng lực giáo dục dựa trên các tài liệu chuyên ngành được cung cấp dưới định dạng văn bản (phổ biến nhất là PDF). Hệ thống sử dụng thông tin từ tài liệu đầu vào để phân tích ngữ cảnh, bóc tách khái niệm, xây dựng ngân hàng câu hỏi trắc nghiệm và tổ chức đánh giá dựa trên thang đo nhận thức Bloom.
+Đối tượng nghiên cứu chủ yếu của đề tài là việc ứng dụng kiến trúc sinh văn bản tăng cường truy xuất (RAG), sức mạnh của các mô hình ngôn ngữ lớn (LLM) và sự tích hợp các thuật toán Tâm trắc học chuyên sâu (như IRT và CAT) vào một nền tảng kiểm tra đánh giá trên nền tảng web ứng dụng.
+Đề tài không tập trung vào việc phân tích và xử lý các tài liệu đầu vào mang tính đa phương tiện (multi-modal) như hình ảnh, âm thanh, video hay các biểu đồ đồ họa kỹ thuật phức tạp. Bên cạnh đó, hệ thống giới hạn việc đánh giá năng lực người học thông qua phương thức kiểm tra trắc nghiệm khách quan (Multiple-choice Questions); không mở rộng sang các phương pháp đánh giá tự luận (Essay grading), phỏng vấn hay tự động chấm điểm kỹ năng thực hành (như lập trình hay thí nghiệm thực tế).
+Ngoài ra, chất lượng của ngân hàng câu hỏi được sinh ra và độ tin cậy trong việc hội tụ điểm số năng lực (Theta) của người học phụ thuộc trực tiếp vào độ sạch của tài liệu học thuật đầu vào, cũng như khả năng suy luận ngữ cảnh của mô hình ngôn ngữ lớn (Llama-3) được triển khai trong hệ thống.
+4. Ý nghĩa khoa học và thực tiễn
+Đề tài đề xuất một giải pháp ứng dụng trí tuệ nhân tạo nhằm tự động hóa toàn diện quy trình xây dựng học liệu và tổ chức kiểm tra đánh giá năng lực. Các đóng góp chính của đề tài bao gồm:
+Đề xuất kiến trúc tích hợp đột phá giữa mô hình sinh văn bản tăng cường truy xuất (RAG) và các thuật toán Tâm trắc học, trong đó hệ thống AI đảm nhiệm các nhiệm vụ chuyên biệt từ bóc tách ngữ liệu, sinh câu hỏi trắc nghiệm đa cấp độ đến khởi tạo các tham số đo lường toán học.
+Xây dựng kỹ thuật xử lý dữ liệu động (Batch Chunking kết hợp Dynamic JSON Repair), cho phép giải quyết triệt để điểm yếu của các mô hình ngôn ngữ lớn khi xử lý văn bản dài. Kỹ thuật này giúp ép kiểu định dạng dữ liệu đầu ra và ngăn chặn hoàn toàn hiện tượng ảo giác (hallucination) làm sập hệ thống.
+Tiên phong áp dụng LLM vào quy trình "Zero-shot Parameterization", giúp hệ thống tự động suy luận và gán các tham số toán học IRT (như độ khó, độ phân biệt, độ đoán mò) ngay tại thời điểm sinh đề. Điều này giúp gỡ bỏ rào cản lớn nhất của các hệ thống CAT truyền thống là phải hiệu chuẩn (calibrate) câu hỏi bằng dữ liệu của hàng ngàn sinh viên làm thử.
+Xây dựng cơ chế Kiểm tra Thích ứng (CAT) theo thời gian thực dựa trên thuật toán Bayesian EAP và Fisher Information. Cơ chế này đi kèm với báo cáo cá nhân hóa thông qua đồ thị hội tụ năng lực (Theta History), cung cấp bức tranh minh bạch về tư duy của người học, hỗ trợ giảng viên dễ dàng đánh giá và điều chỉnh phương pháp giảng dạy.
+Thông qua các đóng góp trên, đề tài hướng tới việc nâng cao mức độ tự động hóa, khắc phục những hạn chế của các bài thi tĩnh truyền thống, đồng thời dân chủ hóa công nghệ kiểm tra thích ứng để hỗ trợ đắc lực cho công cuộc chuyển đổi số trong các hệ thống giáo dục hiện đại.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+CHƯƠNG 1. CƠ SỞ LÝ THUYẾT
+1.1 Tổng quan về kiểm tra đánh giá và ứng dụng AI trong giáo dục 
+1.1.1 Các hạn chế phổ biến của kỳ thi tĩnh và phương pháp sinh đề truyền thống 
+Kiểm tra đánh giá đóng vai trò là thước đo trung tâm trong mọi hệ thống giáo dục, đóng vai trò phản hồi kết quả học tập và định chuẩn kiến thức cho học viên. Tuy nhiên, việc xây dựng và tổ chức các kỳ thi truyền thống (kỳ thi tĩnh - fixed-length exams) đang bộc lộ nhiều điểm nghẽn nghiêm trọng, làm suy giảm tính khách quan và hiệu quả của quá trình cá nhân hóa học tập.
+Khác với các phương pháp kiểm tra động, bài thi tĩnh yêu cầu mọi thí sinh phải làm chung một bộ câu hỏi cố định bất chấp trình độ đầu vào. Những hạn chế cốt lõi của phương pháp này bao gồm:
+	Hiệu ứng trần và sàn (Ceiling and Floor Effects): Xảy ra khi độ khó của bài thi không khớp với năng lực thực sự của thí sinh. Thí sinh xuất sắc dễ dàng đạt điểm tối đa (đụng trần) gây nhàm chán, trong khi thí sinh yếu kém không thể làm được câu nào (chạm sàn) gây áp lực tâm lý. Hệ quả là điểm số không thể phân loại được giới hạn năng lực thực sự của hai nhóm này.
+	Tiêu hao nguồn lực biên soạn (Resource-intensive Test Creation): Việc xây dựng một đề thi chất lượng đòi hỏi các chuyên gia môn học phải phân tích giáo trình, tự thiết kế câu hỏi, phương án nhiễu và cân bằng độ khó. Quá trình thủ công này tiêu tốn hàng chục giờ làm việc, đặc biệt khó mở rộng khi số lượng môn học gia tăng.
+	Cạn kiệt ngân hàng câu hỏi (Item Bank Depletion): Với tần suất tổ chức thi liên tục trên các nền tảng trực tuyến, các câu hỏi tĩnh rất dễ bị lộ hoặc bị học viên ghi nhớ (học vẹt). Việc cập nhật thủ công ngân hàng câu hỏi là một rào cản lớn đối với các cơ sở đào tạo.
+	Sự thiếu đồng nhất trong đánh giá độ khó: Trong các kỳ thi truyền thống, độ khó của câu hỏi thường được gán một cách cảm tính dựa trên kinh nghiệm của giảng viên ra đề, thay vì được định lượng bằng các mô hình toán học thống kê chuẩn xác.
+Bên cạnh đó, khi các tổ chức giáo dục bắt đầu áp dụng Trí tuệ nhân tạo cơ bản để tự động hóa việc sinh đề thi (AIG - Automated Item Generation), họ lại phải đối mặt với một loạt các rủi ro kỹ thuật và sư phạm mới:
+	Hiện tượng ảo giác (Hallucination): Mô hình AI sinh ra các câu hỏi chứa thông tin sai lệch, không có thật hoặc đi chệch hoàn toàn khỏi ngữ cảnh của tài liệu chuyên ngành được cung cấp. [2]
+	Mất cấu trúc định dạng dữ liệu (Format Degradation): Khi sinh ngữ liệu có độ dài lớn, AI thường xuyên bỏ quên các quy tắc định dạng lập trình (như thiếu dấu ngoặc trong JSON), khiến hệ thống máy tính phía sau không thể đọc, lưu trữ và chấm điểm tự động.
+	Thiếu định chuẩn theo thang nhận thức (Lack of Cognitive Alignment): AI thường có xu hướng chỉ sinh ra các câu hỏi học thuộc lòng (mức độ Nhận biết) mà bỏ qua các câu hỏi đòi hỏi tư duy logic và suy luận (mức độ Thông hiểu, Vận dụng) theo thang đo Bloom. [3]
+	Khởi tạo tham số tĩnh (Static Parameterization): Đa số hệ thống AI chỉ biết sinh ra đoạn text câu hỏi mà không đi kèm việc dự đoán và khởi tạo các tham số toán học (như độ phân biệt, độ đoán mò) để phục vụ cho các thuật toán đánh giá xác suất sau này.
+Các hạn chế trên không chỉ xuất phát từ phương pháp sư phạm lỗi thời mà còn bắt nguồn từ việc thiếu đi một kiến trúc phần mềm tích hợp giữa AI sinh tạo và công nghệ đo lường tâm trắc học. Do đó, việc nghiên cứu và khắc phục các điểm yếu này là bước đi tiên quyết nhằm kiến tạo một nền tảng giáo dục thông minh, minh bạch và cá nhân hóa tuyệt đối.
+1.1.2 Quy trình Khảo thí và Đánh giá Thích ứng 
+Kiểm tra đánh giá thích ứng (CAT - Computerized Adaptive Testing) là quá trình mô phỏng các kỳ thi cá nhân hóa dựa trên thuật toán tâm trắc học, nhằm đánh giá chính xác mức độ thông hiểu của học viên và tối ưu hóa thời gian làm bài trước khi đưa ra kết quả cuối cùng [4]. Trong lĩnh vực giáo dục số, nền tảng CAT giúp xác định giới hạn năng lực thực sự (Theta) thông qua việc liên tục tinh chỉnh độ khó câu hỏi dựa trên phản hồi theo thời gian thực của thí sinh.
+Một quy trình đánh giá thích ứng điển hình thường bao gồm các giai đoạn sau:
+	Khởi tạo học liệu (Thu thập thông tin): Đây là giai đoạn đầu tiên nhằm chuẩn bị dữ liệu đầu vào cho hệ thống. Thay vì nhập liệu thủ công, hệ thống sử dụng kiến trúc RAG để đọc các tài liệu chuyên ngành (PDF), bóc tách ngữ nghĩa và tự động sinh ngân hàng câu hỏi. Điểm mấu chốt là các câu hỏi này phải được dự đoán và gán sẵn các tham số toán học IRT (độ khó, độ phân biệt, độ đoán mò).
+	Ước lượng năng lực tiên nghiệm: Trước khi bắt đầu bài thi, hệ thống tiến hành khởi tạo môi trường đánh giá. Năng lực của thí sinh (ký hiệu là θ) ban đầu thường được gán ở mức trung bình (ví dụ: $\theta = 0$). Hệ thống bắt đầu quét ngân hàng đề để chuẩn bị bốc câu hỏi đầu tiên.
+	Thực thi vòng lặp thích ứng: Các kịch bản tính toán xác suất được kích hoạt liên tục. Hệ thống áp dụng Hàm thông tin Fisher cực đại (MFI) để bốc ra câu hỏi phù hợp nhất. Khi thí sinh chọn đáp án (Đúng/Sai), hệ thống ngay lập tức chạy thuật toán Bayesian Expected A Posteriori (EAP) để cập nhật lại mức năng lực θ. Nếu trả lời đúng, câu tiếp theo sẽ khó hơn; nếu sai, câu tiếp theo sẽ dễ đi.
+	Đánh giá và xuất báo cáo: Vòng lặp thích ứng lặp lại cho đến khi đạt điều kiện dừng (ví dụ: sai số chuẩn SEM giảm xuống dưới ngưỡng quy định). Sau khi hoàn thành, hệ thống tổng hợp các phát hiện thành báo cáo năng lực cá nhân hóa. Báo cáo bao gồm điểm số thành thạo, biểu đồ lịch sử hội tụ năng lực (Theta History) và các khuyến nghị cải thiện lộ trình học tập.
+Các phương pháp Tổ chức Khảo thí. Tùy thuộc vào thuật toán điều hướng và sự tương tác với thí sinh, các hệ thống kiểm tra đánh giá thường được chia thành ba phương pháp chính:
+Bảng 1.1: Quá trình phát triển và đặc điểm của các mô hình kiểm tra đánh giá
+Phương pháp	Đặc điểm
+Kiểm tra Tuyến tính (Linear/Static Testing)	Mọi thí sinh đều nhận được một bộ câu hỏi giống hệt nhau, được cố định từ trước khi kỳ thi bắt đầu. Phương pháp này dễ triển khai nhưng đánh đồng mọi năng lực, dễ gây ra hiệu ứng "trần và sàn", đồng thời lãng phí thời gian của cả thí sinh xuất sắc lẫn thí sinh yếu kém.
+Kiểm tra Phân nhánh (Branched Testing)	Bài thi được chia thành nhiều giai đoạn. Dựa vào kết quả của giai đoạn 1, hệ thống sẽ điều hướng thí sinh sang bộ đề dễ hơn hoặc khó hơn ở giai đoạn 2. Đây là bước đệm tiến tới cá nhân hóa, nhưng tính linh hoạt vẫn bị giới hạn theo từng cụm câu hỏi cố định.
+Kiểm tra Thích ứng (Adaptive Testing - CAT)	Hệ thống phản ứng và tính toán lại năng lực sau mỗi một câu trả lời duy nhất. Phương pháp này cho phép đánh giá chuyên sâu, phân loại cực kỳ chính xác và rút ngắn tối đa độ dài bài thi, nhưng đòi hỏi khối lượng tính toán thống kê phức tạp và một ngân hàng câu hỏi đã được lượng hóa thông số IRT chuẩn xác.
+Trong phạm vi đề tài này, hệ thống được xây dựng theo hướng Kiểm tra Thích ứng (CAT) toàn diện, trong đó đầu vào là ngân hàng câu hỏi được tự động sinh và gán nhãn thông số thông qua Mô hình ngôn ngữ lớn (LLM). Điều này cho phép hệ thống tận dụng sự linh hoạt của Trí tuệ nhân tạo để tự động hóa toàn trình, lập kế hoạch đánh giá và đo lường năng lực học viên một cách khách quan và hiệu quả gấp nhiều lần so với phương pháp kiểm tra tuyến tính truyền thống.
+1.1.3 Các nền tảng Khảo thí và Sinh đề tự động truyền thống
+Hiện nay, nhiều công cụ và nền tảng Quản lý Học tập (LMS) đã được phát triển nhằm hỗ trợ quá trình tổ chức thi và kiểm tra đánh giá. Các công cụ này giúp số hóa một phần hoạt động giao bài, thu bài và chấm điểm, góp phần giảm thời gian và công sức của giảng viên. Một số nền tảng phổ biến được sử dụng rộng rãi trong thực tế giáo dục bao gồm:
+Moodle là hệ thống quản lý học tập mã nguồn mở phổ biến nhất thế giới [6]. Moodle cung cấp nhiều tính năng mạnh mẽ như tạo lập khóa học, quản lý ngân hàng câu hỏi, hỗ trợ xáo trộn đề thi và tự động chấm điểm các câu hỏi trắc nghiệm khách quan. Ưu điểm của Moodle là miễn phí, dễ mở rộng và tích hợp tốt vào quy trình đào tạo của hầu hết các trường đại học. Tuy nhiên, khả năng tạo đề thi hoàn toàn tự động còn rất hạn chế. Moodle chủ yếu đóng vai trò là kho lưu trữ; việc biên soạn câu hỏi, xác định độ khó và nhập liệu lên hệ thống vẫn phải dựa 100% vào sức lao động thủ công của giảng viên.
+ 
+Hình 1.1: Hệ thống quản lý học tập Moodle
+“Questionmark” là một trong những nền tảng khảo thí thương mại chuyên nghiệp nhất hiện nay. Nền tảng này cung cấp hệ sinh thái công cụ mạnh mẽ cho phép các tổ chức giáo dục phân tích thống kê câu hỏi và tổ chức các kỳ thi chứng chỉ với độ bảo mật cao. Công cụ này hỗ trợ mạnh mẽ việc phân tích kết quả bài thi theo các nguyên tắc tâm trắc học. Tuy nhiên, đây là giải pháp thương mại đắt đỏ và vẫn yêu cầu sự tham gia sâu của chuyên gia giáo dục trong việc xây dựng, hiệu chuẩn và đánh giá độ khó của các kịch bản kiểm tra trước khi đưa vào sử dụng thực tế.
+ 
+Hình 1.2: Nền tảng khảo thí Questionmark
+Quizlet / Kahoot! ban đầu được phát triển như các nền tảng hỗ trợ ôn tập và kiểm tra định dạng trò chơi hóa (gamification). Bên cạnh các chức năng thi trắc nghiệm cơ bản, các nền tảng này cho phép người dùng chia sẻ bộ thẻ ghi nhớ (flashcards) và tự động tạo ra các bài kiểm tra ngắn. Ưu điểm của các công cụ này là cực kỳ dễ sử dụng, hỗ trợ tương tác nhóm tốt và tạo hứng thú cho học viên. Tuy nhiên, chúng chủ yếu phục vụ cho mục đích đánh giá quá trình (formative assessment) ở mức độ ghi nhớ và chưa được thiết kế chuyên biệt cho việc đánh giá năng lực học thuật phức tạp hay thi thích ứng (CAT).
+ 
+Hình 1.3: Phần mềm Quizlet
+Các công cụ AIG dựa trên khuôn mẫu (Template-based AIG) là các phần mềm được thiết kế để tự động sinh câu hỏi trắc nghiệm dựa trên các mô hình nhận thức (cognitive models) [7]. Chúng hoạt động bằng cách yêu cầu chuyên gia nhập vào các khuôn mẫu câu hỏi (item templates), sau đó thuật toán sẽ tự động hoán đổi các từ khóa hoặc biến số để tạo ra nhiều phiên bản câu hỏi khác nhau. Khác với các công cụ trộn đề truyền thống, Template-based AIG có khả năng nhân bản số lượng lớn câu hỏi nhằm chống gian lận. Công cụ này đặc biệt hiệu quả trong các môn học có tính công thức như Toán học hay Vật lý. Tuy nhiên, công cụ này chỉ tập trung vào việc thay thế biến số trên một cấu trúc cho sẵn, trong khi khả năng phân tích và suy luận ngữ nghĩa từ các tài liệu văn bản thô (như PDF giáo trình) để tự sinh ra các khái niệm lý thuyết mới là hoàn toàn không có.
+Mặc dù các công cụ trên đã hỗ trợ đáng kể quá trình tổ chức kiểm tra đánh giá, phần lớn vẫn dựa trên tập luật cố định, khuôn mẫu tĩnh hoặc sự can thiệp nặng nề của giảng viên. Việc tự động hóa khâu đọc hiểu học liệu chuyên sâu, tự động gán tham số độ khó và cá nhân hóa đề thi theo thời gian thực vẫn gặp rất nhiều khó khăn. Đây cũng chính là động lực cốt lõi thúc đẩy việc nghiên cứu giải pháp ứng dụng Trí tuệ nhân tạo sinh tạo (Generative AI) và thuật toán Tâm trắc học nhằm nâng cao khả năng tự động hóa và hiệu quả của quá trình khảo thí hiện đại.
+1.1.4 Cơ sở toán học của Khảo thí Thích ứng 
+Để giải quyết triệt để những hạn chế của phương pháp đánh giá truyền thống và làm nền tảng cho quy trình kiểm tra thích ứng, đề tài ứng dụng các nguyên lý của Lý thuyết Khảo thí Hiện đại (IRT). Khác với CTT (Lý thuyết Khảo thí Cổ điển) vốn đánh giá người học chủ yếu dựa trên tổng số câu trả lời đúng mà chưa xem xét sự khác biệt về độ khó giữa các câu hỏi, IRT phân tích xác suất trả lời đúng của từng câu hỏi dựa trên sự tương tác giữa năng lực của thí sinh và đặc tính của câu hỏi, thông qua các mô hình xác suất thống kê [5].
+1.1.4.1 Mô hình Logistic 3 Tham số 
+Trong hệ thống đánh giá của đề tài, mô hình 3 tham số (3PL - 3 Parameter Logistic Model) được sử dụng để lượng hóa xác suất thí sinh trả lời đúng một câu hỏi trắc nghiệm khách quan [5]. Đường cong đặc trưng của câu hỏi (Item Characteristic Curve - ICC) trong mô hình 3PL được biểu diễn bằng phương trình:
+ 
+Trong đó:
+	θ (Theta): Là biến ẩn (latent trait) đại diện cho năng lực thực sự của thí sinh. Giá trị θ thường được chuẩn hóa trên thang đo Z (dao động từ -3.0 đến +3.0), với mức 0.0 là mức năng lực trung bình của quần thể.
+	P_i(θ): Xác suất thí sinh có năng lực θ trả lời đúng câu hỏi i. Khi năng lực θ tăng, xác suất trả lời đúng tiến dần đến 1.
+	a_i (Discrimination): Độ phân biệt của câu hỏi i. Tham số này đo lường khả năng phân loại thí sinh giỏi và kém. Giá trị a càng lớn, độ dốc của đường cong ICC tại điểm b_i càng cao, tức là câu hỏi phân loại càng gắt gao.
+	b_i (Difficulty): Độ khó của câu hỏi i. Tham số này được định vị trên cùng thang đo với năng lực θ. Tại điểm θ = b_i, xác suất trả lời đúng của thí sinh là (1 + c_i) / 2 (điểm uốn của đường cong).
+	c_i (Guessing): Mức độ đoán mò (xác suất giả). Đối với câu hỏi trắc nghiệm 4 lựa chọn, c_i thường dao động quanh mức 0.25, đại diện cho xác suất thí sinh chọn bừa đáp án đúng mà không có kiến thức thực sự.
+Việc hệ thống AI tự động định lượng hóa được bộ ba tham số (a, b, c) cho từng câu hỏi mới sinh ra là điều kiện tiên quyết để thuật toán có thể đưa chúng vào ngân hàng đề thi thích ứng.
+Bảng 1.5: Ý nghĩa thực tiễn và miền giá trị của các tham số trong mô hình IRT
+| Ký hiệu | Tên gọi học thuật | Miền giá trị chuẩn | Ý nghĩa thực tiễn trong hệ thống thi |
+| :---: | :--- | :---: | :--- |
+| $\theta$ | Năng lực thí sinh (Theta) | $[-3.0, +3.0]$ | Biểu thị trình độ của sinh viên. Giá trị âm là yếu, $0$ là trung bình, dương là khá giỏi. |
+| $b$ | Độ khó của câu hỏi | $[-3.0, +3.0]$ | Câu hỏi có $b$ càng cao thì càng khó. Hệ thống CAT luôn tìm câu có $b$ tiệm cận với $\theta$. |
+| $a$ | Độ phân biệt | $[0.5, 2.5]$ | Mức độ phân hóa giỏi/yếu của câu hỏi. $a$ càng cao, câu hỏi càng phân loại học sinh tốt. |
+| $c$ | Độ đoán lụi (Guessing) | $[0.0, 0.25]$ | Xác suất học sinh hoàn toàn không có kiến thức nhưng đánh lụi vẫn đúng (ví dụ: $0.25$ cho câu 4 đáp án). |
+1.1.4.2 Hàm thông tin Fisher và Thuật toán chọn câu hỏi
+Trong một kỳ thi thích ứng (CAT), mục tiêu tối thượng là tìm ra điểm năng lực θ hội tụ của thí sinh nhanh nhất có thể (sử dụng ít câu hỏi nhất). Để làm được điều này, hệ thống không chọn câu hỏi ngẫu nhiên mà quyết định dựa trên Hàm thông tin Fisher (Fisher Information) [4]. Hàm này đại diện cho "lượng thông tin" mà một câu hỏi có thể cung cấp về năng lực của thí sinh:
+ 
+Trong đó P'_i(θ) là đạo hàm bậc nhất của hàm xác suất P_i(θ).
+Về mặt vật lý phân tích, I_i(θ) sẽ đạt giá trị cực đại khi độ khó của câu hỏi xấp xỉ với năng lực hiện tại của thí sinh (b_i ≈ θ). Nếu một câu hỏi quá dễ (b_i << θ) hoặc quá khó (b_i >> θ), hàm thông tin sẽ tiến về 0 vì nó không giúp hệ thống phân loại được thí sinh.
+Dựa trên nguyên lý Maximum Fisher Information (MFI), hệ thống CAT hoạt động như sau: Tại mỗi bước thi, thuật toán sẽ duyệt qua toàn bộ ngân hàng câu hỏi chưa làm, tính toán giá trị I_i(θ) của từng câu dựa trên năng lực hiện tại của thí sinh. Câu hỏi nào có điểm thông tin cao nhất sẽ được trích xuất để làm câu tiếp theo.
+1.2	 Mô hình ngôn ngữ lớn
+Mô hình ngôn ngữ lớn (Large Language Models - LLM) là các mô hình trí tuệ nhân tạo được huấn luyện trên lượng dữ liệu văn bản khổng lồ nhằm học các quy luật ngôn ngữ và tri thức từ dữ liệu. Nhờ số lượng tham số lớn và khả năng học biểu diễn ngữ nghĩa sâu, LLM có thể thực hiện nhiều nhiệm vụ khác nhau như trả lời câu hỏi, tóm tắt văn bản, dịch máy, sinh mã nguồn và hỗ trợ ra quyết định. Sự phát triển của LLM đã tạo ra bước tiến lớn trong lĩnh vực xử lý ngôn ngữ tự nhiên. Các mô hình hiện đại như GPT, Llama, Gemma và Claude đều được xây dựng dựa trên kiến trúc Transformer và có khả năng suy luận trên các tác vụ phức tạp. Trong đề tài này, LLM được sử dụng để phân tích ngữ nghĩa các tài liệu chuyên ngành (PDF), tự động bóc tách và sinh ngân hàng câu hỏi trắc nghiệm đa cấp độ, cũng như dự đoán và khởi tạo các tham số tâm trắc học (như độ khó, độ phân biệt) phục vụ cho thuật toán đánh giá IRT. Kiến trúc Transformer được giới thiệu trong nghiên cứu “Attention Is All You Need” và hiện là nền tảng của hầu hết các mô hình ngôn ngữ lớn [8]. Khác với các mô hình tuần tự như RNN hay LSTM, Transformer cho phép xử lý toàn bộ chuỗi dữ liệu song song, giúp tăng tốc độ huấn luyện và cải thiện khả năng học các quan hệ phụ thuộc dài hạn trong văn bản. Thành phần cốt lõi của Transformer là cơ chế Attention, cho phép mô hình xác định mức độ quan trọng của các từ trong ngữ cảnh để tạo ra biểu diễn ngữ nghĩa phù hợp. Self-Attention là cơ chế cho phép mỗi từ trong câu xem xét tất cả các từ còn lại trong cùng chuỗi đầu vào để xác định mức độ liên quan của chúng. Đối với mỗi từ, mô hình tạo ra ba vector:
+	Query (Q): Thông tin cần tìm kiếm.
+	Key (K): Thông tin dùng để so sánh.
+	Value (V): Nội dung thông tin thực tế.
+Thông qua việc tính toán độ tương đồng giữa Query và Key, mô hình xác định trọng số Attention cho từng từ. Các trọng số này sau đó được sử dụng để tổng hợp thông tin từ các Value tương ứng. Nhờ Self-Attention, mô hình có thể nắm bắt các mối quan hệ ngữ nghĩa và ngữ pháp trong toàn bộ câu, kể cả khi các từ nằm cách xa nhau. Điều này đặc biệt hữu ích khi mô hình phải đọc các giáo trình học thuật dài để tìm kiếm thông tin làm đáp án. Thay vì thực hiện Self-Attention một lần duy nhất, Transformer sử dụng nhiều cơ chế Attention hoạt động song song, gọi là Multi-Head Attention. Mỗi Attention Head học một loại quan hệ khác nhau trong dữ liệu, chẳng hạn:
+	Quan hệ giữa chủ ngữ và động từ.
+	Quan hệ giữa các thực thể trong câu.
+	Quan hệ phụ thuộc dài hạn trong văn bản.
+Kết quả từ các Head được kết hợp lại để tạo ra biểu diễn ngữ nghĩa toàn diện hơn. Cơ chế này giúp mô hình hiểu ngữ cảnh từ nhiều góc độ khác nhau và cải thiện đáng kể chất lượng dự đoán. Kiến trúc Transformer nguyên bản bao gồm hai thành phần:
+	Encoder: Tiếp nhận dữ liệu đầu vào và tạo biểu diễn ngữ nghĩa.
+	Decoder: Sử dụng biểu diễn từ Encoder để sinh dữ liệu đầu ra.
+	Kiến trúc Encoder–Decoder phù hợp với các bài toán sequence-to-sequence như:
+	Dịch máy.
+	Tóm tắt văn bản.
+	Trả lời câu hỏi.
+	Sinh nội dung có điều kiện.
+Tuy nhiên, nhiều mô hình ngôn ngữ lớn hiện nay (như GPT hay Llama-3) chỉ sử dụng thành phần Decoder của Transformer, được gọi là kiến trúc Decoder-only. Trong kiến trúc này, mô hình dự đoán từ tiếp theo dựa trên các từ đã xuất hiện trước đó bằng cơ chế Masked Self-Attention. Điều này giúp mô hình có khả năng sinh văn bản tự nhiên và duy trì ngữ cảnh trong các cuộc hội thoại dài hoặc khi sinh các chuỗi định dạng JSON phức tạp. Ưu điểm của kiến trúc Decoder-only gồm:
+	Dễ mở rộng quy mô mô hình.
+	Hiệu quả trong các tác vụ sinh văn bản.
+	Phù hợp với huấn luyện trên lượng dữ liệu rất lớn.
+Nhờ khả năng hiểu ngữ cảnh sâu và suy luận xuất sắc trên dữ liệu phi cấu trúc, các mô hình Transformer hiện đại đã trở thành nền tảng quan trọng cho các hệ thống công nghệ giáo dục (EdTech), bao gồm đường ống RAG và hệ thống sinh đề tự động được đề xuất trong đề tài này.
+1.2.1 Mô hình GPT-4o và họ mô hình Llama-3 
+Sự phát triển của các mô hình ngôn ngữ lớn (Large Language Models – LLMs) đã tạo ra nhiều nền tảng AI có khả năng xử lý ngôn ngữ tự nhiên, suy luận và hỗ trợ tự động hóa các quy trình phức tạp. Trong quá trình nghiên cứu và xây dựng hệ thống sinh đề tự động, hai mô hình tiêu biểu được đánh giá và ứng dụng là GPT-4o và Llama-3.3-70B-Versatile.
+GPT-4o là mô hình ngôn ngữ tiên tiến do OpenAI phát triển, được tối ưu hóa đặc biệt cho các tác vụ suy luận phức tạp và khả năng tích hợp công cụ (Tool Calling) [9]. Ưu điểm lớn nhất của mô hình này là khả năng sinh đầu ra có cấu trúc (Structured Output) với độ chính xác gần như tuyệt đối, vô cùng phù hợp để ép kiểu dữ liệu trả về thành các mảng JSON tiêu chuẩn phục vụ cho việc lưu trữ câu hỏi trắc nghiệm vào cơ sở dữ liệu.
+Llama-3.3-70B-Versatile là mô hình ngôn ngữ lớn mã nguồn mở thuộc họ Llama do Meta phát triển [10]. Mô hình được tối ưu cho nhiều tác vụ như hội thoại, lập trình, suy luận toán học và đặc biệt là xử lý tài liệu dài. Với hiệu năng cao, trọng số mở (Open Weights) và thời gian phản hồi nhanh, Llama-3.3-70B vô cùng phù hợp để triển khai trong kiến trúc RAG, nơi yêu cầu bóc tách và đọc hiểu một lượng lớn dữ liệu đầu vào (từ các file PDF giáo trình) trong thời gian ngắn mà không bị phụ thuộc vào các API thương mại.
+Bảng 1.2: So sánh đặc tính kỹ thuật và năng lực giữa mô hình GPT-4o và Llama-3.3-70B
+Tiêu chí	GPT-4o	Llama-3.3-70B
+Kiến trúc	Dense / MoE (Dự kiến)	Dense Transformer
+Context Window	128K tokens	128K tokens
+Open Weights	Không (Độc quyền)	Có (Mã nguồn mở)
+Khả năng suy luận ngữ nghĩa	Rất tốt	Tốt
+Sinh đầu ra cấu trúc (JSON)	Hỗ trợ Native (Rất ổn định)	Có thể thực hiện qua Framework & Prompt
+Tích hợp RAG Pipeline	Rất phù hợp	Rất phù hợp (Tiết kiệm chi phí)
+Nhìn chung, GPT-4o có ưu thế tuyệt đối trong các tác vụ suy luận nhiều bước và tạo đầu ra có cấu trúc chặt chẽ. Trong khi đó, Llama-3.3-70B mang lại ưu điểm vượt trội về tốc độ xử lý, khả năng tự chủ dữ liệu (bảo mật học liệu) và tối ưu chi phí khi cần phân tích lượng lớn văn bản đầu vào cho hệ thống ngân hàng câu hỏi.
+1.2.2 Kỹ thuật Prompt Engineering
+Prompt Engineering là quá trình thiết kế và tối ưu câu lệnh đầu vào (prompt) nhằm hướng dẫn mô hình ngôn ngữ lớn tạo ra kết quả chính xác, nhất quán và phù hợp với yêu cầu của người dùng. Chất lượng của prompt có ảnh hưởng trực tiếp đến hiệu quả suy luận và độ chính xác của kết quả mà mô hình tạo ra. Trong các hệ thống sinh học liệu tự động, Prompt Engineering đóng vai trò sống còn trong việc kiểm soát hành vi của mô hình, giảm thiểu triệt để hiện tượng tạo thông tin sai lệch (ảo giác) và đảm bảo đầu ra tuân thủ tuyệt đối định dạng hệ thống yêu cầu.
+	Zero-shot Prompting là kỹ thuật cung cấp cho mô hình một yêu cầu mà không kèm theo bất kỳ ví dụ minh họa nào [11]. Mô hình sẽ hoàn toàn dựa trên khối lượng kiến thức đã học trong quá trình huấn luyện để thực hiện nhiệm vụ. Ưu điểm của Zero-shot Prompting là đơn giản, tiết kiệm token và dễ triển khai. Trong đề tài này, kỹ thuật này được áp dụng thành công vào phương pháp "Zero-shot Parameterization", nơi hệ thống yêu cầu AI tự động suy luận và gán các thông số tâm trắc học IRT (độ khó, độ phân biệt) cho câu hỏi mà không cần cung cấp dữ liệu hiệu chuẩn mẫu.
+	Few-shot Prompting cung cấp cho mô hình một số ví dụ mẫu trước khi đưa ra yêu cầu thực tế. Các ví dụ này giúp mô hình hiểu rõ hơn về cách thức thực hiện nhiệm vụ và định dạng kết quả mong muốn. Ưu điểm của phương pháp này là cải thiện độ chính xác và tính nhất quán của đầu ra. Trong hệ thống sinh đề thi, kỹ thuật này được sử dụng để cung cấp cho AI một vài mẫu câu hỏi trắc nghiệm chuẩn mực, giúp mô hình học được cách thiết kế 4 đáp án (1 đúng, 3 nhiễu) một cách logic.
+	Chain-of-Thought (CoT) Prompting là kỹ thuật khuyến khích mô hình thực hiện suy luận từng bước thay vì đưa ra kết luận trực tiếp [12]. Mô hình sẽ phân tích vấn đề theo một chuỗi lập luận logic trước khi tạo kết quả cuối cùng. Phương pháp này đặc biệt hiệu quả đối với các bài toán yêu cầu suy luận phức tạp. Trong dự án, CoT được sử dụng để yêu cầu AI lập luận rõ ràng lý do tại sao một đáp án là chính xác và tại sao các phương án nhiễu (distractors) lại sai, trước khi tổng hợp thành câu hỏi hoàn chỉnh.
+Một thách thức cực kỳ lớn khi sử dụng LLM trong các hệ thống tự động hóa là đầu ra thường ở dạng văn bản tự nhiên (plain text), gây lỗi nghiêm trọng khi chuyển giao dữ liệu cho các chương trình máy tính. Để giải quyết vấn đề này, các mô hình hiện đại hỗ trợ cơ chế Structured Output hoặc JSON Mode, cho phép mô hình trả về dữ liệu tuân thủ nghiêm ngặt theo một cấu trúc xác định trước. Việc sử dụng JSON Mode mang lại nhiều lợi ích to lớn:
+	Dễ dàng tích hợp với các hệ thống tự động (API, Database).
+	Giảm thiểu lỗi phân tích (parsing error) khi nhận đầu ra từ LLM.
+	Đảm bảo tính toàn vẹn và nhất quán của cấu trúc dữ liệu.
+	Hỗ trợ luân chuyển dữ liệu mượt mà giữa AI Engine và hệ thống CAT Frontend.
+Trong đề tài này, Structured Output được sử dụng xuyên suốt quá trình hoạt động của đường ống RAG. Dữ liệu câu hỏi được mô hình trả về dưới dạng JSON chuẩn hóa, sau đó đi qua module json_repair để kiểm tra lần cuối trước khi lưu trữ nguyên vẹn vào cơ sở dữ liệu PostgreSQL. Điều này giúp hệ thống hoạt động trơn tru và loại bỏ triệt để các rủi ro sập ứng dụng (runtime error) do lệch định dạng văn bản.
+1.3 Hệ thống đa tác tử 
+1.3.1  Khái niệm và đặc điểm
+Hệ thống Đa Tác Tử AI (Multi-Agent System) là một mô hình trong đó nhiều tác tử thông minh cùng phối hợp để thực hiện một nhiệm vụ hoặc giải quyết một bài toán phức tạp. Thay vì sử dụng một mô hình AI duy nhất đảm nhiệm toàn bộ quy trình một cách cồng kềnh, hệ thống đa tác tử phân chia công việc thành các nhiệm vụ nhỏ hơn và giao cho các tác tử chuyên biệt xử lý. Cách tiếp cận này giúp nâng cao khả năng mở rộng, tăng tính mô-đun và cải thiện độ chính xác trong các bài toán yêu cầu nhiều bước suy luận và tương tác với môi trường bên ngoài.
+Agent (Tác tử) là một thực thể phần mềm có khả năng:
+	Nhận thông tin từ môi trường.
+	Phân tích và đưa ra quyết định.
+	Thực hiện hành động nhằm đạt được mục tiêu xác định (Action).
+Khi được tích hợp sức mạnh từ mô hình ngôn ngữ lớn, Agent không chỉ thực hiện các thao tác tĩnh được lập trình sẵn mà còn có khả năng hiểu ngữ cảnh, tự lập kế hoạch và đưa ra quyết định linh hoạt dựa trên dữ liệu thu thập được. Một tác tử thông minh thường bao gồm các thành phần:
+	Mục tiêu: Nhiệm vụ cần hoàn thành.
+	Bộ nhớ: Lưu trữ thông tin và kết quả từ các bước trước đó (ví dụ: lịch sử đoạn văn đã đọc).
+	Khả năng suy luận: Phân tích dữ liệu và đưa ra quyết định.
+	Công cụ: Các dịch vụ hoặc chức năng (như truy vấn ChromaDB, gọi API PostgreSQL) mà Agent có thể sử dụng để tương tác với môi trường.
+Trong lĩnh vực công nghệ giáo dục và sinh đề thi tự động, mỗi Agent có thể đảm nhận một vai trò riêng biệt để đảm bảo tính chính xác. Ví dụ: RAG Agent chuyên phân tích ngữ nghĩa từ tài liệu PDF; Generator Agent chịu trách nhiệm sinh câu hỏi và khởi tạo các thông số IRT; và CAT Agent (Bộ máy đánh giá thích ứng) đảm nhận việc điều phối thuật toán, tính toán xác suất và cập nhật điểm năng lực cho học viên.
+Cơ chế ReAct (Reasoning and Acting) là một mô hình được đề xuất nhằm kết hợp chặt chẽ khả năng suy luận lý thuyết và hành động thực tế của các mô hình ngôn ngữ lớn [13]. Thay vì chỉ tạo ra câu trả lời cuối cùng một cách mù quáng, Agent hoạt động theo chu trình liên tục:
+	Reason (Suy luận): Phân tích tình huống hiện tại và xác định bước tiếp theo cần thực hiện.
+	Act (Hành động): Gọi công cụ (Tool Calling) hoặc thực hiện một thao tác cụ thể (ví dụ: bóc tách dữ liệu từ file PDF).
+	Observe (Quan sát): Thu thập kết quả từ hành động vừa thực hiện để đánh giá mức độ thành công.
+	Reason tiếp: Dựa trên thông tin mới thu nhận được để tiếp tục đưa ra quyết định tiếp theo.
+Quá trình này được lặp lại thành một vòng tròn khép kín cho đến khi hệ thống hoàn thành mục tiêu cuối cùng (ví dụ: xuất ra thành công một bộ câu hỏi định dạng JSON hoàn chỉnh và không có lỗi).
+1.3.2 Framework Langchain & LangGraph
+Để xây dựng các hệ thống AI Agent dựa trên mô hình ngôn ngữ lớn, nhiều framework đã được phát triển nhằm hỗ trợ quản lý lời gọi mô hình, định hình cấu trúc dữ liệu và điều phối quy trình thực thi. Trong số đó, LangChain và LangGraph là hai nền tảng cốt lõi được sử dụng rộng rãi để phát triển các hệ thống AI có khả năng xử lý nhiều bước. Trong phạm vi đề tài này, LangChain được sử dụng để xây dựng các thành phần tương tác trực tiếp với LLM và cơ sở dữ liệu Vector (ChromaDB), trong khi LangGraph đảm nhiệm việc điều phối luồng trạng thái phức tạp giữa các Agent trong toàn bộ đường ống (pipeline) tự động sinh học liệu.
+LangChain là framework mã nguồn mở được thiết kế nhằm đơn giản hóa việc phát triển các ứng dụng sử dụng mô hình ngôn ngữ lớn. Framework này cung cấp các module giúp kết nối LLM với dữ liệu, công cụ và các dịch vụ bên ngoài. Các chức năng chính của LangChain bao gồm:
+	LLM Chain: Tổng hợp các bước xử lý thành chuỗi, trong đó đầu ra của bước trước (ví dụ: bóc tách PDF) trở thành đầu vào của bước tiếp theo (sinh câu hỏi).
+	Tool Calling: Cho phép LLM gọi các công cụ bên ngoài như API, hệ quản trị cơ sở dữ liệu, hoặc các hàm tùy chỉnh (như json_repair) để xử lý các rủi ro cấu trúc.
+	Memory: Lưu trữ thông tin từ các tương tác trước nhằm duy trì ngữ cảnh, giúp Agent có khả năng phân tích các tài liệu giáo trình cực kỳ dài mà không bị "quên" kiến thức nền tảng.
+Mặc dù LangChain hỗ trợ xây dựng các chuỗi xử lý tuần tự xuất sắc, việc triển khai các hệ thống AI Agent phức tạp với nhiều nhánh rẽ, vòng lặp (như yêu cầu sinh lại câu hỏi nếu lỗi định dạng) vẫn còn nhiều hạn chế. Để giải quyết vấn đề này, LangGraph được phát triển như một framework mở rộng của LangChain, sử dụng mô hình đồ thị trạng thái để điều phối luồng thực thi. Các thành phần chính của LangGraph gồm:
+	StateGraph: Đại diện cho toàn bộ quy trình thực thi dưới dạng đồ thị, trong đó trạng thái dữ liệu được bảo toàn và truyền tải giữa các nút mạng.
+	Node: Mỗi Node tương ứng với một tác vụ hoặc một Agent độc lập, chẳng hạn như truy xuất ChromaDB, sinh câu hỏi, hoặc định lượng thông số IRT.
+	Edge: Xác định thứ tự chuyển tiếp giữa các Node.
+	Conditional Edge: Cho phép lựa chọn nhánh thực thi dựa trên kết quả của Node trước. Ví dụ: Nếu Validator Agent phát hiện cấu trúc JSON bị hỏng, hệ thống sẽ tự động bẻ nhánh quay lại Node xử lý để sinh lại câu hỏi thay vì đẩy thẳng vào database gây sập hệ thống.
+Nhờ mô hình đồ thị này, LangGraph có thể biểu diễn các workflow phức tạp với nhiều vòng lặp an toàn, vô cùng phù hợp với hệ thống AI sinh học liệu tự động. Một đặc điểm nổi bật khác của LangGraph là hỗ trợ Checkpointing, cho phép lưu trạng thái của toàn bộ đồ thị trong quá trình chạy. Thành phần MemorySaver là một cơ chế checkpointer được LangGraph cung cấp để lưu lại trạng thái sau mỗi Node. Khi pipeline sinh hàng trăm câu hỏi bị gián đoạn (do API timeout hoặc lỗi mạng), hệ thống có thể khôi phục lại ngay trạng thái câu hỏi gần nhất đã lưu mà không cần phải chạy lại toàn bộ quy trình tốn thời gian.
+Trong đề tài này, MemorySaver được sử dụng để lưu trữ trạng thái luân chuyển giữa các Agent chủ chốt như: Ingestion Agent (nạp tài liệu), RAG Agent (truy xuất ngữ cảnh), Generator Agent (sinh nội dung và khởi tạo thông số độ khó) và Validator Agent (kiểm duyệt cấu trúc JSON). Cơ chế này đảm bảo khối lượng lớn dữ liệu giáo dục trung gian được truyền đi chính xác xuyên suốt đường ống sinh đề.
+1.3.3 Thiết kế luồng điều phối
+Trong các hệ thống AI Agent, Điều phối (Orchestration) là cơ chế kiểm soát quá trình thực thi giữa các tác tử, quyết định thứ tự thực hiện, luồng truyền dữ liệu và điều kiện chuyển đổi giữa các bước xử lý. Một cơ chế điều phối hiệu quả giúp hệ thống hoạt động ổn định, dễ mở rộng và có khả năng giải quyết các bài toán phức tạp yêu cầu sự phối hợp đa chiều.
+Đối với các hệ thống Multi-Agent, hai mô hình điều phối phổ biến nhất hiện nay là Sequential Pipeline (Tuần tự) và Graph-based Pipeline (Đồ thị). Sequential Pipeline là mô hình thực thi tuyến tính, trong đó các tác vụ được thực hiện theo một chuỗi cố định. Đầu ra của bước trước sẽ trở thành đầu vào của bước tiếp theo cho đến khi hoàn thành toàn bộ quy trình. Ưu điểm của mô hình này là đơn giản, dễ triển khai. Tuy nhiên, Sequential Pipeline có một số hạn chế nghiêm trọng:
+	Khó biểu diễn các nhánh điều kiện (If/Else).
+	Không hỗ trợ tốt các vòng lặp (Loops).
+	Khó tái sử dụng hoặc quay lại một bước trước khi phát hiện lỗi hệ thống.
+	Khả năng mở rộng rất hạn chế đối với các workflow phức tạp.
+Do đó, Sequential Pipeline thường chỉ phù hợp với các ứng dụng xử lý tĩnh cơ bản. Graph-based Pipeline biểu diễn toàn bộ workflow dưới dạng đồ thị có hướng, trong đó mỗi Agent được mô hình hóa như một nút (Node) và các cạnh (Edge) xác định luồng chuyển tiếp giữa các tác vụ. Khác với mô hình tuần tự, Graph-based Pipeline cho phép:
+	Phân nhánh thực thi theo điều kiện động.
+	Hỗ trợ vòng lặp an toàn (Safe loops).
+	Quay lại (fallback) các bước trước đó khi phát hiện ngoại lệ.
+	Thực thi các tác vụ độc lập chạy song song (Parallel execution).
+	Dễ dàng thay thế hoặc nâng cấp từng Agent riêng biệt.
+Mô hình đồ thị này được ứng dụng mạnh mẽ trong LangGraph. Đối với bài toán tự động sinh học liệu giáo dục, Graph-based Pipeline là lựa chọn bắt buộc vì quá trình sinh văn bản bằng AI không phải lúc nào cũng mượt mà. Ví dụ: nếu mô hình ngôn ngữ sinh ra một khối dữ liệu bị vỡ cấu trúc JSON, hệ thống có thể bẻ nhánh đồ thị quay lại ngay bước sinh nội dung để bắt mô hình chạy lại (retry) thay vì để ứng dụng bị crash.
+Một đặc điểm quan trọng nhất của các hệ thống AI Agent hiện đại là Feedback Loop (Vòng lặp phản hồi), tức cơ chế sử dụng kết quả của bước trước làm kinh nghiệm để điều chỉnh các bước xử lý tiếp theo. Thay vì thực hiện toàn bộ workflow một lần duy nhất theo kiểu "chạy rồi bỏ", Agent liên tục:
+	Thực hiện hành động.
+	Quan sát kết quả thu được.
+	Phân tích phản hồi/lỗi.
+	Điều chỉnh kế hoạch/Prompt.
+	Tiếp tục thực thi.
+Cơ chế này có mối liên hệ chặt chẽ với mô hình ReAct (Reasoning + Acting), trong đó LLM luân phiên giữa suy luận và hành động cho đến khi mục tiêu hoàn thiện. Trong kiến trúc hệ thống sinh đề và khảo thí của đề tài này, Feedback Loop được áp dụng vô cùng triệt để vào hai quy trình lõi:
+1.	Vòng lặp Sinh học liệu: Generator Agent sinh câu hỏi $\rightarrow$ Validator Agent (công cụ json_repair) kiểm tra cấu trúc. Nếu phát hiện cấu trúc hỏng, thông báo lỗi sẽ được nạp ngược lại cho Generator Agent để nó tự lập luận và sửa sai cho đến khi file JSON đạt chuẩn 100%.
+2.	Vòng lặp Kiểm tra Thích ứng (CAT): Bộ máy CAT Engine quét và bốc câu hỏi tối ưu ->Thí sinh thao tác chọn đáp án -> Thuật toán Bayesian EAP tiếp nhận đúng/sai để tính toán lại điểm năng lực θ. Nếu sai số đo lường (SEM) vẫn chưa đạt ngưỡng tin cậy, vòng lặp phản hồi sẽ chỉ thị hệ thống tiếp tục bốc thêm câu hỏi mới có độ khó phù hợp với θ vừa cập nhật.
+Nhờ cơ chế điều phối đa tác tử này, hệ thống giáo dục của đề tài có khả năng tự động nắn chỉnh sai sót và cá nhân hóa lộ trình thích ứng theo thời gian thực thay vì chỉ là một cỗ máy trộn đề thi tuyến tính cứng nhắc.
+1.4 Phân tích và xử lý dữ liệu phi cấu trúc
+Tài liệu chuyên ngành (thường dưới định dạng PDF hoặc Word) là nguồn lưu trữ tri thức cốt lõi đóng vai trò làm dữ liệu đầu vào cho quá trình tự động sinh câu hỏi của hệ thống. Tuy nhiên, khác với các cơ sở dữ liệu dạng bảng, văn bản tự nhiên mang tính phi cấu trúc (unstructured data). Để con người và các công cụ trí tuệ nhân tạo có thể hiểu được các khái niệm, định nghĩa và ngữ cảnh chuyên sâu, dữ liệu này cần phải trải qua quá trình tiền xử lý kỹ lưỡng mà không làm mất đi tính toàn vẹn của thông tin gốc.
+Nhờ sự phát triển của các thuật toán nhúng (Embedding) và kỹ thuật phân đoạn văn bản (Text Chunking), các tài liệu chữ dài dòng có thể được chuyển đổi thành các vector toán học mật độ cao [14]. Các vector này sau đó được sử dụng rộng rãi trong các hệ thống cơ sở dữ liệu Vector (như ChromaDB) nhằm hỗ trợ việc tìm kiếm, truy xuất ngữ nghĩa (Semantic Search) và cung cấp bối cảnh sạch cho các mô hình AI.
+Trong đề tài này, tài liệu văn bản (PDF) là đầu vào khởi nguồn quan trọng nhất của hệ thống Multi-Agent. Ingestion Agent sử dụng tài liệu này để băm nhỏ dữ liệu thành các đoạn kích thước chuẩn, trong khi RAG Agent dựa vào kho dữ liệu Vector để phân tích cấu trúc kiến thức, xác định các khái niệm học thuật tiềm năng, cung cấp bộ nhớ ngữ cảnh và hỗ trợ Generator Agent ở bước tiếp theo lập kế hoạch sinh câu hỏi trắc nghiệm một cách chính xác.
+1.4.1 Cấu trúc định dạng dữ liệu JSON sinh học liệu
+Hệ thống tổ chức tài liệu câu hỏi đầu ra dưới dạng một mảng tài liệu JSON hoặc YAML để đảm bảo tính đồng bộ khi lưu trữ. Các thành phần bắt buộc cấu trúc nên một câu hỏi hoàn chỉnh bao gồm:
+	question_text: Câu dẫn chứa nội dung trọng tâm cần hỏi.
+	options: Danh sách mảng chứa 4 phương án trả lời (A, B, C, D).
+	correct_answer: Biến định danh phương án chính xác nhất.
+	explanation: Diễn giải lý do tại sao phương án đó đúng và vì sao các phương án nhiễu lại sai.
+	bloom_level: Định nghĩa nhãn mức độ nhận thức của câu hỏi (Nhận biết, Thông hiểu, Vận dụng).
+Bảng 1.4: Phân loại các cấp độ nhận thức theo Thang đo Bloom
+| Cấp độ nhận thức | Giải thích tiêu chí đánh giá | Các động từ gợi ý sử dụng trong Prompt |
+| :--- | :--- | :--- |
+| **1. Nhớ (Remember)** | Nhận biết, nhớ lại các sự kiện, thuật ngữ, định nghĩa. | Liệt kê, Mô tả, Định nghĩa, Gọi tên |
+| **2. Hiểu (Understand)** | Nắm bắt ý nghĩa, diễn giải hoặc tóm tắt được thông tin. | Giải thích, Tóm tắt, Trình bày, So sánh |
+| **3. Vận dụng (Apply)** | Sử dụng thông tin, kiến thức đã học vào tình huống thực tế. | Áp dụng, Phân loại, Giải quyết, Tính toán |
+| **4. Phân tích (Analyze)** | Chia nhỏ thông tin để tìm ra cấu trúc, mối liên hệ bên trong. | Phân tích, Suy luận, So sánh đối chiếu |
+| **5. Đánh giá (Evaluate)** | Đưa ra phán xét, kết luận dựa trên các tiêu chí nhất định. | Nhận xét, Lập luận, Kiểm chứng, Đánh giá |
+| **6. Sáng tạo (Create)** | Tổng hợp các thành phần để tạo ra một cấu trúc/giải pháp mới. | Thiết kế, Xây dựng, Đề xuất, Kiến tạo |
+	irt_parameters: Cấu trúc mảng con chứa các thông số đo lường tâm trắc học khởi tạo.
+Trong đó, phần options và irt_parameters là hai thành phần quan trọng nhất đối với quá trình khảo thí thích ứng, vì chúng cung cấp nguyên liệu trực tiếp để hệ thống hiển thị bài thi và chạy các thuật toán tính toán xác suất.
+1.4.2. Các trường dữ liệu cốt lõi và tham số 
+Mỗi câu hỏi được LLM sinh ra không chỉ đơn thuần là văn bản mà còn được kết nối với các mô hình toán học đo lường. Một điểm nghẽn của API truyền thống là xác thực quyền, còn điểm nghẽn của câu hỏi sinh tự động là mức độ định lượng. Do đó, tham số Tâm trắc học được ép buộc sinh ra bao gồm:
+	Tham số a (Discrimination): Độ phân biệt của câu hỏi, giúp phân loại rõ học viên xuất sắc và yếu kém.
+	Tham số b (Difficulty): Độ khó tuyến tính, biểu diễn khả năng trả lời đúng của học viên.
+	Tham số c (Guessing): Xác suất đoán mò ngẫu nhiên (thường rơi vào ≈ 0.25 đối với câu hỏi 4 lựa chọn).
+Các thông tin cấu trúc này cho phép hệ thống tự động:
+	Sinh ra các giao diện hiển thị câu hỏi hợp lệ trên Frontend.
+	Kiểm tra tính toàn vẹn và kiểu dữ liệu (Data Type) trước khi nhập vào cơ sở dữ liệu.
+	Cung cấp tham số đầu vào để tính toán Hàm thông tin Fisher (MFI).
+	Phân tích khả năng hội tụ năng lực của thí sinh qua thuật toán Bayesian EAP. 
+1.4.3 Mối quan hệ phụ thuộc ngữ nghĩa trong mô hình RAG
+Trong các hệ thống AI thế hệ mới, nội dung không được sinh ra một cách ngẫu nhiên từ hư vô mà tồn tại mối quan hệ phụ thuộc dữ liệu cực kỳ chặt chẽ vào bối cảnh (Context). Ví dụ, một định nghĩa học thuật được sinh ra làm phương án đúng bắt buộc phải phụ thuộc vào đoạn text đã được bóc tách từ file giáo trình PDF. Mối quan hệ này có thể được biểu diễn dưới dạng Đồ thị phụ thuộc ngữ nghĩa (Semantic Dependency Graph), trong đó:
+	Node biểu diễn một đoạn văn bản nhỏ (Document Chunk) trong cơ sở dữ liệu Vector.
+	Edge biểu diễn độ tương đồng (Cosine Similarity) giữa câu lệnh (Prompt) và đoạn văn bản.
+Sự phụ thuộc ngữ nghĩa giúp hệ thống xác định:
+	Đoạn văn bản nào cần được đưa vào bộ nhớ ngữ cảnh để LLM đọc.
+	Dữ liệu nào được dùng làm cơ sở vững chắc để sinh phương án đúng.
+	Chuỗi thông tin hợp lệ nào dùng để sinh phương án nhiễu (distractors) nhằm đảm bảo sự thử thách nhưng không sai lệch học thuật.
+Trong đề tài, biểu đồ phụ thuộc ngữ nghĩa được xây dựng bằng kiến trúc RAG thông qua cơ sở dữ liệu ChromaDB [15]. RAG Agent phân tích các quan hệ tương đồng này để xây dựng nền tảng tri thức, từ đó hỗ trợ Generator Agent xác định thứ tự thông tin và xây dựng các kịch bản câu hỏi đa dạng nhằm tránh hiện tượng ảo giác (Hallucination) và nâng cao độ tin cậy của bài kiểm tra.
+1.5. Công cụ và thư viện hỗ trợ
+Để hiện thực hóa kiến trúc Đa tác tử (Multi-Agent) và các thuật toán Khảo thí thích ứng phức tạp, việc lựa chọn các công nghệ nền tảng đóng vai trò cực kỳ quan trọng. Hệ thống được xây dựng dựa trên sự kết hợp của các framework xử lý ngôn ngữ tự nhiên tiên tiến nhất hiện nay, đi kèm với các thư viện hỗ trợ tối ưu hóa hiệu năng và quản trị cơ sở dữ liệu ở phía máy chủ. Chi tiết về các công cụ, thư viện mã nguồn mở lõi đã được áp dụng trong quá trình phát triển hệ thống cùng với vai trò cụ thể của từng thành phần được tổng hợp chi tiết trong bảng dưới đây:
+Bảng 1.3: Công cụ và thư viện 
+Công cụ	Vai trò
+LangChain 	Nền tảng điều phối kiến trúc RAG, băm nhỏ tài liệu và tương tác trực tiếp với LLM API. [16]
+LangGraph	Điều phối luồng vòng lặp thực thi của các tác tử (Generator Agent, Validator Agent) trong hệ thống tự động.[16]
+FastAPI	Xây dựng API Backend chuyên xử lý các tác vụ AI khối lượng lớn một cách bất đồng bộ. [17]
+ChromaDB	Cơ sở dữ liệu Vector mã nguồn mở, hỗ trợ nhúng (Embedding) và tìm kiếm ngữ nghĩa cực nhanh. [18]
+Prisma ORM	Ánh xạ và xác thực cấu trúc cơ sở dữ liệu quan hệ (PostgreSQL) để ngăn chặn lỗi Schema Validation. [19]
+json_repair	Thư viện tự động phân tích và phục hồi các chuỗi dữ liệu JSON bị lỗi vỡ định dạng từ LLM sinh ra.
+ 
+CHƯƠNG 2. PHÂN TÍCH THIẾT KẾ HỆ THỐNG
+2.1	Yêu cầu hệ thống
+Để đáp ứng mục tiêu tự động hóa toàn diện quá trình sinh học liệu và đánh giá năng lực, hệ thống được thiết kế với các yêu cầu chức năng và phi chức năng chặt chẽ. Các yêu cầu này là cơ sở vững chắc cho việc kiến trúc phần mềm và triển khai các tác tử trí tuệ nhân tạo ở các mục tiếp theo.
+2.1.1 Yêu cầu chức năng
+Hệ thống được xây dựng nhằm tự động hóa quy trình khảo thí từ khâu nạp dữ liệu thô đến khâu cấp phát kết quả dựa trên kiến trúc Multi-Agent. Các yêu cầu chức năng cốt lõi được mô tả như sau:
+ 
+Hình 2.1: Biểu đồ Use-Case
+
+	Quản lý luồng đầu vào (Input Processing): Hệ thống phải cho phép người dùng tải lên tài liệu học thuật dưới định dạng văn bản (PDF, Word, TXT). Sau khi nhận đầu vào, hệ thống tiến hành kiểm tra tính hợp lệ của tệp, phân tích cú pháp và bóc tách văn bản thô (Raw text) mà không làm hỏng cấu trúc câu. Đây là nguồn tri thức cốt lõi phục vụ cho toàn bộ quá trình sinh đề thi sau này.
+	Phân tích ngữ nghĩa và Băm nhỏ tài liệu (Ingestion & RAG Agent): Tác tử Ingestion có nhiệm vụ chia nhỏ văn bản (Chunking) theo kích thước tiêu chuẩn, sau đó tiến hành mã hóa thành các vector mật độ cao (Embedding) và lưu trữ vào ChromaDB. Hệ thống phải xây dựng được tập ngữ cảnh (Context) chính xác để phục vụ cho các truy vấn Semantic Search.
+	Lập kế hoạch và Sinh học liệu (Generator Agent): Dựa trên ngữ cảnh được cung cấp bởi RAG Agent, Generator Agent chịu trách nhiệm xây dựng các kịch bản câu hỏi trắc nghiệm. Nhiệm vụ bắt buộc của Agent này là phân loại câu hỏi theo ma trận nhận thức Bloom, đồng thời thực hiện "Zero-shot Parameterization" để dự đoán và khởi tạo trực tiếp 3 thông số Tâm trắc học (Độ khó b, Độ phân biệt a, Độ đoán mò c).
+	Kiểm duyệt và Tự phục hồi dữ liệu (Validator Agent): Hệ thống phải có khả năng tự động kiểm tra định dạng đầu ra của LLM. Tác tử này tích hợp thuật toán json_repair để phân tích các khối văn bản lỗi, tự động bổ sung các dấu ngoặc hoặc định dạng thiếu, đảm bảo cấu trúc JSON đầu ra đạt chuẩn 100% trước khi thực hiện ghi vào cơ sở dữ liệu quan hệ (PostgreSQL).
+	Điều phối kiểm tra thích ứng (CAT Agent): Trong giai đoạn đánh giá, hệ thống phải cung cấp giao diện làm bài trực tuyến. CAT Agent có nhiệm vụ theo dõi phiên làm việc (Session), bốc xuất câu hỏi tối ưu nhất dựa trên Hàm thông tin Fisher (MFI). Ngay sau khi thí sinh chọn đáp án, hệ thống phải lập tức chuyển dữ liệu cho module thuật toán để chạy quy trình Bayesian EAP, tính toán lại điểm năng lực θ hiện tại.
+	Tổng hợp và Xuất báo cáo (Reporting Agent): Sau khi thuật toán CAT đạt điều kiện hội tụ (Sai số chuẩn SEM giảm xuống dưới ngưỡng cho phép), kỳ thi sẽ tự động dừng lại. Hệ thống tiến hành tổng hợp toàn bộ lịch sử làm bài, chấm điểm và xuất báo cáo cá nhân hóa. Báo cáo bắt buộc bao gồm biểu đồ lịch sử hội tụ năng lực (Theta History) để cung cấp bức tranh minh bạch về tư duy của thí sinh.
+2.1.2 Yêu cầu phi chức năng 
+Bên cạnh các chức năng nghiệp vụ, hệ thống bắt buộc phải đáp ứng các tiêu chí phi chức năng nhằm đảm bảo khả năng chịu tải, tính bảo mật và khả năng mở rộng trong môi trường thực tế.
+	Hiệu năng và Thời gian đáp ứng (Performance):
+•	Hệ thống phải có khả năng hoàn thành toàn bộ quy trình RAG và sinh ngân hàng câu hỏi (quy mô 50 câu) từ một tài liệu PDF tiêu chuẩn trong thời gian dưới 5 phút trên môi trường máy chủ thông thường.
+•	Đối với giao diện thi thích ứng (CAT), do câu hỏi tiếp theo được tính toán dựa trên câu trả lời trước đó, thời gian trễ (latency) khi chuyển câu bắt buộc phải dưới 1 giây để không làm gián đoạn luồng tư duy của học viên.
+	Khả năng mở rộng và Tính mô-đun (Scalability & Modularity): Hệ thống được thiết kế theo Kiến trúc Lục giác (Hexagonal Architecture) kết hợp Microservices. Mỗi Agent (RAG, Generator, CAT) đảm nhiệm một vòng lặp độc lập và giao tiếp thông qua API (FastAPI). Kiến trúc này cho phép dễ dàng nâng cấp mô hình ngôn ngữ (ví dụ: chuyển từ Llama-3 sang Llama-4) hoặc bổ sung thêm tác tử mới (ví dụ: Reinforcement Learning Agent để tự động cập nhật thông số độ khó dựa trên dữ liệu thật) mà không làm sập toàn bộ hệ thống lõi.
+	Bảo mật thông tin (Security): Hệ thống phải đảm bảo an toàn tuyệt đối đối với các thông tin cấu hình nhạy cảm. Các API Keys (OpenAI, Groq), URL kết nối cơ sở dữ liệu và JWT Secret không được lưu trữ trực tiếp trong mã nguồn (hardcode) mà phải được quản lý thông qua biến môi trường (.env). Ngân hàng câu hỏi sinh ra phải được phân quyền truy cập nghiêm ngặt để tránh hiện tượng rò rỉ đề thi.
+	Tính toàn vẹn dữ liệu (Data Integrity): Với lượng lớn các tham số toán học (số thực float) được hệ thống luân chuyển liên tục giữa AI và Database, hệ thống yêu cầu sử dụng TypeScript kết hợp Prisma ORM để áp đặt cơ chế kiểm tra kiểu dữ liệu tĩnh (Type-safe), đảm bảo mọi truy vấn ghi/đọc dữ liệu đều chính xác tuyệt đối ở cấp độ cấu trúc.
+Bảng 2.5: Danh sách các Endpoint API cốt lõi xử lý nghiệp vụ tại Backend
+| HTTP Method | Endpoint (Đường dẫn) | Vai trò và Chức năng xử lý |
+| :--- | :--- | :--- |
+| `POST` | `/api/v1/documents/upload` | Nạp file PDF giáo trình, tiến hành Chunking và lưu trữ vào ChromaDB. |
+| `POST` | `/api/v1/questions/generate` | Kích hoạt luồng Multi-Agent sinh ngân hàng câu hỏi tự động. |
+| `GET` | `/api/v1/questions/{id}` | Truy xuất cấu trúc JSON của một câu hỏi bất kỳ từ PostgreSQL. |
+| `POST` | `/api/v1/exam/cat/next` | Nhận kết quả câu trước, chạy tích phân EAP, dùng Fisher tìm câu tiếp theo. |
+| `GET` | `/api/v1/exam/report/{id}` | Trả về dữ liệu kết quả thi, sai số SEM và mảng tọa độ vẽ biểu đồ Theta. |
+2.2 Kiến trúc tổng thể hệ thống
+Hệ thống sinh học liệu và khảo thí thích ứng được thiết kế theo kiến trúc Multi-Agent Pipeline kết hợp với mô hình RAG, trong đó mỗi Agent đảm nhiệm một giai đoạn riêng biệt của quy trình sư phạm. Các Agent này không hoạt động rời rạc mà được điều phối chặt chẽ thông qua framework LangGraph. Khung làm việc này cho phép truyền tải trạng thái ngữ cảnh một cách liên tục giữa các bước, quản lý luồng thực thi phức tạp và hỗ trợ cơ chế tự sửa sai (Self-correction) mỗi khi có sự cố định dạng xảy ra. Toàn bộ đường ống hệ thống bắt đầu từ việc nạp tài liệu thô và kết thúc bằng việc kết xuất một ngân hàng câu hỏi chuẩn hóa cùng các báo cáo năng lực chi tiết. Chi tiết kiến trúc tổng thể của hệ thống được minh họa cụ thể trong 
+ 
+
+Hình 2.2: Kiến trúc tổng thể
+Đầu vào khởi thủy của hệ thống là các tài liệu chuyên ngành dưới định dạng văn bản như PDF hoặc Word. Sau khi người dùng thực hiện thao tác tải lên, hệ thống lập tức tiến hành đọc và phân tích cú pháp nhằm trích xuất văn bản thô, đồng thời tự động loại bỏ các ký tự rác để chuẩn bị một bối cảnh nội dung sạch. Đây là cơ sở cốt lõi cung cấp nguyên liệu cho các Agent thực hiện các bước xử lý sâu hơn.
+ 
+Hình 2.3: Biểu đồ Tuần tự (Sequence Diagram) cho luồng làm bài thi
+
+
+Thành phần đầu tiên của đường ống là Ingestion & RAG Agent, mang nhiệm vụ xử lý tài liệu và thiết lập nền tảng tri thức. Quá trình phân tích của Agent này được chia làm hai giai đoạn liên tiếp. Giai đoạn phân tích tĩnh thực hiện việc cắt nhỏ văn bản (Chunking) theo kích thước 1500 ký tự với độ trùng lặp 150 ký tự, sau đó mã hóa chúng thành các vector (Embedding) và lưu trữ vào cơ sở dữ liệu ChromaDB để xây dựng đồ thị phụ thuộc ngữ nghĩa. Ngay sau đó, ở giai đoạn phân tích động, tài liệu được chia thành nhiều đoạn xử lý song song và gửi tới mô hình ngôn ngữ lớn nhằm nhận diện các từ khóa, các khái niệm chuyên môn trọng tâm, đồng thời lọc bỏ các đoạn văn bản không mang giá trị học thuật. Kết quả trả về của RAG Agent là một tập ngữ cảnh hoàn toàn sạch sẽ kèm theo danh sách các chủ đề kiến thức cần thiết để đưa vào đề thi.
+Tiếp nối quy trình, Generator Agent sử dụng kết quả truy xuất ngữ nghĩa từ RAG Agent để tiến hành xây dựng ngân hàng câu hỏi. Đối với mỗi chủ đề kiến thức, Agent này sẽ tự động sinh ra một đối tượng câu hỏi hoàn chỉnh dưới định dạng JSON. Một câu hỏi tiêu chuẩn bao gồm phần câu dẫn chứa bối cảnh bài toán, bốn phương án trả lời trong đó chỉ có một phương án đúng, đi kèm phần giải thích chi tiết tính logic của đáp án và nhãn ma trận nhận thức Bloom. Đặc biệt, hệ thống áp dụng kỹ thuật "Zero-shot Parameterization", yêu cầu LLM phải tự động suy luận và khởi tạo ngay lập tức ba tham số Tâm trắc học IRT là độ khó, độ phân biệt và độ đoán mò. Các thông số này chính là nền tảng dữ liệu bắt buộc để thuật toán thích ứng CAT có thể vận hành ở giai đoạn sau.
+Sau khi câu hỏi được sinh ra, Validator Agent sẽ tiếp nhận toàn bộ khối dữ liệu này để đánh giá rủi ro logic và ngăn chặn các lỗi có thể làm sập hệ thống. Hệ thống áp dụng cơ chế lọc đa tầng nhằm triệt tiêu hiện tượng ảo giác (hallucination) cũng như các lỗi cấu trúc. Ở tầng thứ nhất, hệ thống sử dụng thư viện json_repair kết hợp với biểu thức chính quy Regex để rà soát và ép kiểu chuỗi văn bản đầu ra. Bất kỳ chuỗi nào thiếu dấu ngoặc hoặc sai định dạng JSON cơ bản đều được thuật toán tĩnh tự động vá lỗi ngay lập tức. Nếu vượt qua tầng thứ nhất, nội dung câu hỏi tiến vào tầng thứ hai, nơi dữ liệu được gửi lại cho LLM để đối chiếu chéo với ngữ cảnh gốc trong ChromaDB, đảm bảo tuyệt đối không sinh ra các kiến thức nằm ngoài tài liệu đã cung cấp. Ở tầng kiểm duyệt cuối cùng, logic toán học được áp dụng để rà soát các thông số IRT sinh ra; ví dụ, hệ số độ khó bắt buộc phải nằm trong giới hạn hợp lý từ -3 đến +3, nếu vượt ra ngoài biên độ này thì câu hỏi sẽ bị đánh dấu là bất thường.
+Sau khi hoàn thành toàn bộ quá trình phân tích và kiểm duyệt, bộ điều phối trung tâm (Orchestrator) tiến hành tính toán giá trị độ tin cậy của từng câu hỏi. Nếu câu hỏi đạt chuẩn về cả định dạng JSON lẫn độ chính xác kiến thức, dữ liệu sẽ được lưu thẳng vào hệ quản trị cơ sở dữ liệu PostgreSQL thông qua công cụ Prisma ORM. Ngược lại, nếu điểm tin cậy quá thấp do phát hiện hiện tượng ảo giác hoặc lỗi cấu trúc quá nặng, Orchestrator sẽ điều hướng luồng thực thi bẻ nhánh quay trở lại Generator Agent. Khi đó, LLM sẽ được cung cấp thông tin lỗi để tự động lập luận và sinh lại câu hỏi đó thay vì bỏ qua. Cơ chế vòng lặp phản hồi này chính là chìa khóa giúp hệ thống hoạt động vô cùng bền bỉ, loại trừ hoàn toàn nguy cơ dữ liệu rác xâm nhập vào ngân hàng đề thi.
+Đóng vai trò là chốt chặn cuối cùng trong kiến trúc hệ thống, CAT Engine & Reporting Agent đảm nhận nhiệm vụ tương tác trực tiếp với người dùng đầu cuối. Khi thí sinh tham gia làm bài thi trực tuyến, CAT Engine sẽ liên tục bốc xuất các câu hỏi tối ưu nhất dựa trên Hàm thông tin Fisher (MFI), đồng thời cập nhật năng lực của thí sinh sau mỗi thao tác trả lời thông qua thuật toán Bayesian EAP. Khi bài thi thỏa mãn điều kiện dừng, Reporting Agent sẽ tiến hành tổng hợp kết quả và xuất báo cáo năng lực dưới dạng JSON. Báo cáo này cung cấp một cái nhìn toàn diện bao gồm tóm tắt quá trình làm bài, biểu đồ lịch sử hội tụ năng lực, mức độ thông thạo kiến thức chi tiết và các đề xuất cá nhân hóa nhằm cải thiện lộ trình học tập cho từng sinh viên.
+2.3 Thiết kế chi tiết từng agent
+2.3.1 Ingestion & RAG Agent
+Ingestion & RAG Agent là tác tử tiên phong trong toàn bộ đường ống sinh học liệu tự động của hệ thống. Nhiệm vụ tối thượng của Agent này là thu thập và phân tích thông tin từ các tài liệu chuyên ngành đầu vào (như PDF hoặc Word), xây dựng biểu diễn ngữ nghĩa nội bộ của tri thức và xác định các khái niệm học thuật có tiềm năng để khai thác thành câu hỏi kiểm tra. Kết quả xử lý của RAG Agent chính là bộ nhớ ngữ cảnh cực kỳ quan trọng, đóng vai trò làm dữ liệu đầu vào trực tiếp cho Generator Agent trong các bước tiếp theo.
+Về mặt chức năng, tác tử này thực hiện một quy trình khép kín bắt đầu từ việc đọc và phân tích cú pháp tài liệu gốc. Sau khi trích xuất toàn bộ văn bản thô, hệ thống tiến hành băm nhỏ tài liệu (Chunking) thành các phân đoạn tiêu chuẩn và mã hóa chúng thành vector (Embedding). Từ đây, Agent phân tích quan hệ tương đồng giữa các đoạn văn để xây dựng đồ thị phụ thuộc ngữ cảnh, giúp lưu trữ vào cơ sở dữ liệu ChromaDB. Tiếp đó, hệ thống sử dụng sức mạnh suy luận của mô hình ngôn ngữ lớn (LLM) để rà soát toàn bộ văn bản, đánh giá mức độ quan trọng của từng đoạn và lọc ra các chủ đề kiến thức trọng tâm. Khác với các công cụ đọc file truyền thống chỉ thực hiện trích xuất text thuần túy, RAG Agent kết hợp hài hòa giữa xử lý phân mảnh tĩnh và suy luận ngữ nghĩa động bằng LLM, giúp phát hiện chính xác các khái niệm cốt lõi và loại bỏ hoàn toàn các đoạn văn bản rác (như mục lục, lời cảm ơn) trước khi tiến hành sinh câu hỏi, từ đó tối ưu hóa số lượng token cần xử lý.
+Đầu vào của RAG Agent rất đơn giản, chỉ bao gồm tài liệu văn bản chuyên ngành do người dùng tải lên. Tuy nhiên, sau khi hoàn thành quá trình phân tích, tác tử này cập nhật vào trạng thái chung của hệ thống một lượng lớn dữ liệu có cấu trúc. Các dữ liệu này bao gồm danh sách các đoạn văn bản đã được làm sạch, bộ vector ngữ nghĩa tương ứng, danh sách các từ khóa học thuật trọng điểm và danh sách các chủ đề đã được dán nhãn phân loại. Toàn bộ khối dữ liệu tinh tinh chế này được lưu trữ với các siêu dữ liệu chặt chẽ và được sử dụng trực tiếp bởi Generator Agent để lập kế hoạch sinh kịch bản đề thi.
+Bảng 2.7: Cấu trúc Siêu dữ liệu (Metadata) đính kèm mỗi Vector nhúng trong ChromaDB
+| Tên Metadata | Kiểu dữ liệu | Ví dụ thực tế | Vai trò trong quá trình truy xuất |
+| :--- | :--- | :--- | :--- |
+| `source_file` | String | *TCP_IP_Chapter1.pdf* | Truy xuất nguồn gốc giáo trình để làm minh chứng học thuật. |
+| `page_number` | Integer | *15* | Xác định vị trí đoạn văn nằm ở trang nào để tiện đối chiếu. |
+| `chunk_index` | Integer | *42* | Xác định thứ tự cắt đoạn văn bản để phục hồi ngữ cảnh lân cận. |
+| `bloom_level` | String | *Apply* | Lọc ngữ cảnh theo độ khó dự kiến khi Agent cần sinh câu hỏi. |
+Quy trình hoạt động chi tiết của RAG Agent:
+ 
+
+Hình 2.4: Cấu trúc luồng xử lý dữ liệu và suy luận ngữ nghĩa của Ingestion & RAG Agent
+
+Bắt đầu bằng việc hệ thống đọc tài liệu và chuyển đổi sang cấu trúc dữ liệu mảng nội bộ. Sau khi hoàn thành phân tích tĩnh và chia nhỏ văn bản thành nhiều chunk, mỗi chunk được gửi tới LLM một cách độc lập. Tại đây, LLM thực hiện nhiệm vụ phân tích nội dung, nhận diện các định nghĩa hay công thức mang giá trị học thuật cao, đồng thời xác định mức độ ưu tiên khai thác câu hỏi cho từng đoạn. Việc chia nhỏ tài liệu thành nhiều chunk để gửi đi không chỉ cho phép hệ thống xử lý song song, mà còn giúp giảm thiểu rủi ro vượt quá giới hạn token ngữ cảnh của mô hình ngôn ngữ, mang lại tốc độ thực thi vượt trội cho toàn bộ quy trình nạp dữ liệu đầu vào.
+2.3.2 Generator Agent	
+          Generator Agent là tác tử giữ vai trò trọng tâm chịu trách nhiệm xây dựng kế hoạch và trực tiếp sinh ra các bộ câu hỏi trắc nghiệm dựa trên ngữ cảnh tri thức đã được tinh chế từ giai đoạn trước. Dựa trên các chủ đề kiến thức đã được vạch ra và đồ thị phụ thuộc từ cơ sở dữ liệu Vector, tác tử này tạo ra các kịch bản học liệu hoàn chỉnh phục vụ cho quá trình khảo thí. Khác với các phương pháp xáo trộn đề thi ngẫu nhiên truyền thống, hệ thống này tạo ra những câu hỏi mang mục tiêu rõ ràng, tuân thủ chặt chẽ ma trận nhận thức Bloom và định lượng được mức độ hiểu biết của học viên.
+Nhiệm vụ cốt lõi của Generator Agent bắt đầu bằng việc tiếp nhận kết quả phân tích ngữ nghĩa từ trạng thái chung của hệ thống. Tác tử sẽ lần lượt xử lý từng chủ đề học thuật để sinh ra cấu trúc câu hỏi chuyên sâu, phân tách rạch ròi giữa câu dẫn, các phương án lựa chọn và phần giải thích cặn kẽ tính logic của đáp án. Điểm đột phá trong thiết kế của tác tử này là việc áp dụng kỹ thuật "Zero-shot Parameterization". Thay vì phụ thuộc vào một lượng dữ liệu lịch sử khổng lồ để tính toán độ khó, hệ thống ép buộc mô hình ngôn ngữ lớn đóng vai trò như một chuyên gia tâm trắc học để dự đoán và khởi tạo trực tiếp ba thông số quan trọng của mô hình IRT bao gồm độ khó, độ phân biệt và độ đoán mò. Để tối ưu tốc độ và tiết kiệm chi phí tính toán, các tác vụ nội suy này được hệ thống phân phối và thực thi hoàn toàn song song. Kết quả đầu ra của Generator Agent là một tập hợp các đối tượng JSON chứa đầy đủ cấu trúc câu hỏi cũng như các định lượng toán học, sẵn sàng để được luân chuyển sang giai đoạn kiểm duyệt và lưu trữ vào cơ sở dữ liệu quan hệ.
+Bảng 2.6: Cấu trúc lược đồ dữ liệu (Schema) của bảng lưu trữ Câu hỏi trắc nghiệm (PostgreSQL)
+| Tên trường (Field) | Kiểu dữ liệu | Khóa | Giải thích ý nghĩa |
+| :--- | :--- | :---: | :--- |
+| `id` | UUID | PK | Định danh duy nhất của câu hỏi trong CSDL. |
+| `content` | Text | | Nội dung câu hỏi (Câu dẫn chính). |
+| `options` | JSON | | Mảng chứa 4 phương án trả lời (A, B, C, D). |
+| `correct_idx` | Integer | | Chỉ mục của đáp án đúng (0, 1, 2 hoặc 3). |
+| `explanation` | Text | | Giải thích chi tiết tại sao đáp án lại đúng. |
+| `irt_difficulty_b` | Float | | Mức độ khó của câu hỏi do LLM đánh giá định lượng. |
+| `irt_discrimination_a`| Float | | Độ phân biệt của câu hỏi do LLM đánh giá định lượng. |
+ 
+Hình 2.5: Luồng xử lý của Generator Agent
+
+2.3.3 Validator Agent
+Validator Agent là tác tử chịu trách nhiệm thực thi quy trình kiểm duyệt chất lượng nghiêm ngặt đối với các câu hỏi vừa được sinh ra. Nhiệm vụ chính của tác tử này là phân tích tính toàn vẹn của nội dung JSON, đối chiếu chéo kiến thức với ngữ cảnh gốc và rà soát sự hợp lý của các tham số đo lường nhằm bảo vệ ngân hàng đề thi khỏi các dữ liệu rác. Khác với các công cụ kiểm thử truyền thống thường phó mặc hoàn toàn cho AI tự do đánh giá, hệ thống của chúng ta áp dụng cơ chế lọc ba tầng vô cùng chặt chẽ.
+Hoạt động cốt lõi của tác tử này diễn ra theo một luồng xử lý tuần tự. Ở tầng kiểm duyệt tĩnh đầu tiên, hệ thống sử dụng thuật toán giải mã json_repair kết hợp với các biểu thức chính quy để kiểm tra và tự động phục hồi các chuỗi JSON bị đứt gãy cấu trúc mà không cần gọi lại AI. Khi dữ liệu an toàn bước qua tầng thứ hai, phần trích xuất sự kiện sẽ gửi nội dung câu hỏi ngược lại cho mô hình ngôn ngữ lớn để rà soát hiện tượng ảo giác. Tại đây, mô hình bị giới hạn chặt chẽ trong vai trò đối chiếu xem kiến thức được sinh ra có nằm ngoài phạm vi tài liệu giáo trình hay không. Ở tầng cuối cùng, các thuật toán logic tĩnh được kích hoạt để đánh giá các thông số IRT. Ví dụ, tham số độ khó của câu hỏi bắt buộc phải nằm trong giới hạn toán học an toàn từ -3 đến +3. Thông qua việc phân tích qua cả ba tầng, tác tử này cung cấp một điểm tin cậy tổng hợp để đánh giá mức độ hoàn thiện của câu hỏi trước khi cấp quyền lưu trữ vào cơ sở dữ liệu quan hệ.
+ 
+
+Hình 2.6: Cơ chế kiểm duyệt đa tầng (Multi-tier Validation) của Validator Agent
+2.3.4 CAT Engine & Reporting Agent
+CAT Engine và Reporting Agent là chốt chặn cuối cùng trong chu trình hệ thống, đảm nhận nhiệm vụ tương tác trực tiếp với người học và tổng hợp kết quả năng lực. Khác với các hệ thống thi trắc nghiệm tĩnh chỉ liệt kê điểm số một cách khô khan, cụm tác tử này ứng dụng thuật toán học máy và mô hình ngôn ngữ lớn để cá nhân hóa lộ trình thi và đưa ra các khuyến nghị mang tính chuyên gia.
+
+Trong suốt quá trình kiểm tra, CAT Engine liên tục bốc xuất các câu hỏi dựa trên Hàm thông tin Fisher (MFI) để tối ưu hóa khả năng thử thách thí sinh. Ngay sau mỗi thao tác chọn đáp án, hệ thống lập tức cập nhật điểm năng lực thông qua thuật toán Bayesian EAP cho đến khi sai số đo lường đạt ngưỡng an toàn. Ngay khi bài thi kết thúc, Reporting Agent sẽ tiếp quản luồng dữ liệu, thu thập toàn bộ lịch sử làm bài từ trạng thái hệ thống để phân tích. Với lời nhắc được thiết lập tinh tế, hệ thống sẽ tự động sinh ra một báo cáo tổng quan. Báo cáo này không chỉ cung cấp biểu đồ lịch sử hội tụ năng lực của thí sinh mà còn dùng ngôn ngữ tự nhiên để đánh giá mức độ thông thạo từng chủ đề, đồng thời đề xuất cụ thể các lỗ hổng kiến thức mà học viên cần khắc phục. Việc tự động hóa quá trình diễn giải kết quả này giúp giảng viên nắm bắt nhanh chóng thực trạng chất lượng đào tạo mà không cần phải thực hiện các phép tính thống kê phức tạp.
+
+ 
+
+Hình 2.7: Luồng thực thi thuật toán thích ứng (CAT) và sinh báo cáo của hệ thống
+2.4 Thiết kế State 
+Trong kiến trúc điều phối được đề xuất, các tác tử không bao giờ trao đổi dữ liệu trực tiếp với nhau theo mô hình điểm nối điểm (point-to-point) nhằm tránh làm phức tạp hóa hệ thống. Thay vào đó, tất cả đều giao tiếp thông qua một đối tượng trạng thái hệ thống chung (System State). Đây là thành phần trung tâm lưu trữ toàn bộ dữ liệu được sinh ra trong quá trình thực thi và đóng vai trò như một nguồn dữ liệu gốc duy nhất, được liên tục làm mới sau mỗi vòng lặp xử lý.
+Mỗi tác tử khi được đánh thức chỉ tiến hành đọc các thông tin cần thiết từ trạng thái này, thực thi các logic nghiệp vụ đặc thù của mình, sau đó ghi đè hoặc bổ sung kết quả mới để bàn giao cho tác tử tiếp theo. Cơ chế thiết kế này giải quyết triệt để bài toán ghép nối lỏng lẻo giữa các thành phần, tăng cường tính mô-đun hóa và tạo tiền đề dễ dàng để thay thế mô hình ngôn ngữ trong tương lai mà không làm vỡ kiến trúc lõi. Về mặt cấu trúc, trạng thái hệ thống được duy trì xuyên suốt vòng đời của đường ống sinh học liệu. Trạng thái này lưu trữ toàn diện từ dữ liệu đầu vào, ngữ cảnh trinh sát, kế hoạch sinh đề, bằng chứng kiểm duyệt cho đến báo cáo tổng hợp. Hơn thế nữa, nó còn nắm giữ các tham số điều phối quan trọng như biến đếm vòng lặp và điểm số tin cậy. Nhờ khả năng theo dõi các tham số này, bộ điều phối trung tâm LangGraph có cơ sở dữ liệu vững chắc để ra quyết định kích hoạt cơ chế bẻ nhánh, buộc các luồng công việc quay ngược lại tác tử sinh câu hỏi nhằm tự động sửa sai mỗi khi phát hiện một khối dữ liệu không đạt chuẩn.
+
+ 
+
+Hình 2.8: Luồng tương tác qua Trạng thái Hệ thống
+
+
+
+
+
+
+
+
+CHƯƠNG 3: XÂY DỰNG HỆ THỐNG & ĐÁNH GIÁ KẾT QUẢ
+3.1 Môi trường triển khai
+Hệ thống sinh học liệu và khảo thí thích ứng được phát triển đồng bộ dựa trên nền tảng công nghệ web hiện đại. Kiến trúc hệ thống được xây dựng theo mô hình Đa tác tử (Multi-Agent), tận dụng sức mạnh của framework LangGraph để điều phối các luồng xử lý phức tạp và LangChain để tương tác trực tiếp với các mô hình ngôn ngữ lớn. Hệ thống bao gồm hai phân hệ chính: Frontend hiển thị giao diện tương tác và Backend xử lý các thuật toán trí tuệ nhân tạo chuyên sâu.
+Hệ thống được triển khai trên môi trường máy chủ với các thành phần và thư viện lõi tương ứng như sau: Hệ điều hành Windows hoặc Linux đóng vai trò nền tảng. Phân hệ giao diện được xây dựng bằng ngôn ngữ TypeScript trên nền tảng Next.js kết hợp cùng Tailwind CSS để đảm bảo tính phản hồi nhanh nhẹn. Phân hệ trí tuệ nhân tạo được lập trình bằng Python 3.10+, sử dụng khung FastAPI kết hợp cùng Uvicorn để cung cấp các dịch vụ bất đồng bộ. Dữ liệu hệ thống được lưu trữ bảo mật trên cơ sở dữ liệu quan hệ PostgreSQL và được ánh xạ qua công cụ Prisma ORM, trong khi khối lượng lớn dữ liệu vector phục vụ việc truy xuất ngữ nghĩa được lưu trữ trong cơ sở dữ liệu ChromaDB.
+3.2  Cài đặt môi trường
+Để triển khai hệ thống vào hoạt động thực tế, người quản trị cần thiết lập môi trường tách biệt cho cả hai phân hệ Frontend và Backend nhằm đảm bảo tính toàn vẹn của các gói phụ thuộc. Hệ thống được đóng gói thông qua cơ chế Môi trường ảo (Virtual Environment) đối với Python và Node Package Manager (NPM) đối với TypeScript, giúp ngăn chặn triệt để hiện tượng xung đột phiên bản và đảm bảo sự nhất quán tuyệt đối từ khâu phát triển cục bộ cho đến khi vận hành trên đám mây.
+Quy trình cài đặt được thực hiện tuần tự qua các bước rõ ràng. Bước đầu tiên là khởi tạo và kích hoạt môi trường ảo cho phân hệ AI, sau đó sử dụng trình quản lý gói pip để nạp toàn bộ các thư viện Python chuyên dụng như LangChain và FastAPI từ tệp cấu hình yêu cầu. Bước thứ hai là thiết lập môi trường Node.js cho giao diện người dùng, tự động cài đặt các công cụ biên dịch và thư viện tương tác trực tiếp qua lệnh cài đặt mặc định. Bước vô cùng quan trọng tiếp theo là thiết lập hệ thống biến môi trường an toàn. Người triển khai tiến hành tạo các tệp cấu hình ẩn .env để bảo mật tuyệt đối các thông tin nhạy cảm như khóa truy cập API của OpenAI hoặc Groq, chuỗi kết nối cơ sở dữ liệu PostgreSQL và các tham số mã hóa Token hệ thống. Việc sử dụng biến môi trường giúp tách biệt hoàn toàn dữ liệu nhạy cảm khỏi mã nguồn mở, mang lại tính cơ động cực cao khi di dời máy chủ. Sau khi quá trình thiết lập hoàn tất, hệ thống được kích hoạt lệnh khởi chạy đồng bộ và tự động nạp toàn bộ cấu hình, sẵn sàng tiếp nhận tài liệu và phục vụ sinh viên làm bài thi thích ứng.
+3.3 Cài đặt luồng thuật toán Khảo thí Thích ứng (CAT Engine)
+	Để hiện thực hóa lý thuyết Khảo thí thích ứng (IRT) thành những dòng mã lệnh chạy được trên hệ thống thực tế, nhóm nghiên cứu đã xây dựng một bộ máy xử lý (CAT Engine) tại phân hệ Backend bằng ngôn ngữ Python. Thuật toán này đóng vai trò như một vòng lặp tuần hoàn, phối hợp chặt chẽ ba công thức toán học cốt lõi đã đề cập ở Chương 1 để liên tục đánh giá và bốc xuất câu hỏi. Quy trình xử lý của thuật toán diễn ra theo các bước cực kỳ nghiêm ngặt như sau:
+	Bước 1: Khởi tạo phiên thi. Ngay khi sinh viên bắt đầu bài thi, hệ thống sẽ gán cho sinh viên một mức năng lực ban đầu Theta = 0.0 (tương đương mức trung bình chuẩn) và khởi tạo một mảng lưu trữ danh sách các câu hỏi chưa được trả lời.
+	Bước 2: Bốc xuất câu hỏi tối ưu (Áp dụng thuật toán Fisher). Hệ thống không chọn câu hỏi ngẫu nhiên. Thay vào đó, máy chủ sẽ quét qua toàn bộ các câu hỏi còn lại trong cơ sở dữ liệu, đưa mức Theta hiện tại vào công thức Hàm thông tin Fisher. Thuật toán sẽ tính toán và tìm ra câu hỏi duy nhất mang lại lượng thông tin (Information) lớn nhất. Câu hỏi này được gửi qua giao thức API để hiển thị lên giao diện Frontend cho sinh viên làm.
+	Bước 3: Ghi nhận và chấm điểm (Áp dụng Mô hình 3PL). Sinh viên đưa ra lựa chọn đáp án. Hệ thống Backend ngay lập tức đối chiếu và ghi nhận kết quả dưới dạng biến nhị phân: u = 1 (nếu đúng) hoặc u = 0 (nếu sai). Lúc này, kết quả của người thi được đưa vào Mô hình toán học 3 tham số (3PL Logistic Model) để thiết lập nên hàm Hợp lý (Likelihood Function) dựa trên độ khó (b), độ phân biệt (a) và độ đoán lụi (c) của chính câu hỏi vừa làm.
+	Bước 4: Cập nhật năng lực (Áp dụng tích phân Bayesian EAP). Đây là khâu xử lý tốn nhiều tài nguyên tính toán nhất trong hệ thống. Máy chủ sẽ tiến hành chập hàm Hợp lý vừa tính được ở Bước 3 với phân phối chuẩn tiên nghiệm (Prior Distribution) của sinh viên để tạo ra phân phối hậu nghiệm (Posterior). Bằng cách giải bài toán Tích phân Bayesian EAP (Expected a Posteriori), thuật toán tính ra được điểm năng lực Theta mới, bám sát với trình độ thực tế hơn, đồng thời xuất ra luôn giá trị Sai số chuẩn đo lường (Standard Error of Measurement - SEM).
+	Bước 5: Kiểm tra điều kiện dừng (Stopping Rule). Khác với kiểu thi trắc nghiệm dàn trải, thuật toán CAT có cơ chế tự động ngắt. Tại bước này, hệ thống sẽ kiểm tra xem giá trị sai số SEM đã giảm xuống dưới ngưỡng chấp nhận được (ví dụ: <= 0.3) hay chưa. Nếu đã đạt được độ chính xác này, hoặc sinh viên đã làm đến số lượng câu hỏi tối đa, vòng lặp thuật toán sẽ lập tức phá vỡ (break), phiên thi kết thúc và xuất ra báo cáo kết quả cuối cùng. Nếu điều kiện dừng chưa được thỏa mãn, thuật toán sẽ tự động quay ngược lại Bước 2 với mức Theta vừa được cập nhật để tiếp tục bốc câu hỏi mới.
+	Thông qua thiết kế vòng lặp 5 bước khép kín này, toàn bộ khối lý thuyết toán học phức tạp của tâm trắc học hiện đại đã được "lập trình hóa" thành công, đảm bảo phần mềm có khả năng tự động nắn chỉnh độ khó linh hoạt và đo lường chính xác năng lực thực chất của người học mà không cần bất kỳ sự can thiệp thủ công nào từ con người.
+3.4 Triển khai giao diện và kết quả chạy thực tế
+	Nhằm chứng minh tính khả thi của mô hình lý thuyết, hệ thống đã được lập trình và triển khai thực tế trên môi trường máy chủ cục bộ. Phân hệ giao diện (Frontend - Next.js) được kết nối thành công với bộ xử lý đa tác tử và cơ sở dữ liệu Vector (Backend - FastAPI), cho phép hệ thống vận hành trơn tru các luồng nghiệp vụ cốt lõi từ khâu nạp tài liệu đến khâu xuất báo cáo kết quả. 
+3.4.1 Giao diện nạp tài liệu và khởi tạo RAG
+	Phân hệ đầu tiên của giao diện được thiết kế với mục đích số hóa và tiền xử lý tài liệu thô. Tại màn hình này, giảng viên hoặc người quản trị hệ thống có thể thao tác tải lên các tệp giáo trình định dạng PDF. Giao diện được tối ưu hóa theo nguyên lý thiết kế tối giản (Minimalism) với một khu vực kéo thả tài liệu (Drag-and-Drop) trực quan. Ngay sau khi người dùng xác nhận tải lên, hệ thống sẽ tự động kích hoạt tiến trình xử lý bất đồng bộ ở phía Backend. Giao diện cung cấp cho người dùng thanh trạng thái để theo dõi quá trình hệ thống thực hiện bóc tách văn bản, làm sạch dữ liệu, và phân mảnh (Chunking). Kết quả chạy thực tế cho thấy hệ thống đã thành công trong việc kết nối API để sinh ra các vector nhúng (Embeddings) và lưu trữ nguyên vẹn cấu trúc tri thức vào cơ sở dữ liệu ChromaDB mà không làm gián đoạn trải nghiệm tương tác của người dùng.
+ 
+Hình 3.1: Giao diện tải tài liệu PDF và khởi tạo dữ liệu RAG
+3.4.2 Kết quả xây dựng ngân hàng câu hỏi tự động
+	Sau khi cơ sở dữ liệu Vector đã được nạp đầy đủ tri thức, tiến trình Multi-Agent sẽ tiếp quản và bắt đầu chu trình suy luận AI để kiến tạo ngân hàng câu hỏi. Giao diện ở phân hệ này có chức năng trực quan hóa dữ liệu được trả về từ Backend. Bức ảnh minh họa dưới đây chứng minh hệ thống đã sinh ra thành công danh sách các câu hỏi trắc nghiệm đa lựa chọn. Đặc biệt, hệ thống đã ánh xạ chính xác các trường dữ liệu quan trọng nhất theo chuẩn tâm trắc học bao gồm: nội dung câu hỏi, bốn phương án trả lời, đáp án đúng và lý giải chi tiết. Hình ảnh thực tế cũng cho thấy tính hiệu quả của kỹ thuật Zero-shot Parameterization khi các tham số IRT (như độ khó b, độ phân biệt a) đã được LLM định lượng trực tiếp và hiển thị một cách tường minh ngay bên cạnh mỗi câu hỏi.
+ 
+Hình 3.2: Danh sách câu hỏi trắc nghiệm và các thông số IRT được sinh tự động
+3.4.3 Giao diện làm bài thi truyền thống
+Bên cạnh tính năng khảo thí thích ứng phức tạp, hệ thống cũng cung cấp một chế độ thi truyền thống (Thi toàn đề) để phục vụ cho các kịch bản đánh giá thông thường. Ở chế độ này, thay vì máy tính tự quyết định độ khó và đưa ra từng câu một, giao diện sẽ tải và hiển thị toàn bộ danh sách các câu hỏi của đề thi lên màn hình cùng một lúc. Thiết kế trang web được bổ sung thêm một bảng điều hướng (Navigation Panel) trực quan nằm bên góc, cho phép sinh viên dễ dàng theo dõi xem câu nào đã làm, câu nào chưa, và nhanh chóng nhảy cóc qua lại giữa các câu hỏi. Việc nhóm phát triển quyết định giữ lại chế độ thi truyền thống này là có chủ đích: nó đóng vai trò như một hệ quy chiếu nền tảng (baseline). Chính nhờ có trải nghiệm làm một bài thi dàn trải với số lượng câu hỏi cố định như thế này, người dùng mới có thể đem ra so sánh và thấy rõ được sự ưu việt, tiết kiệm thời gian của thuật toán thi thích ứng (CAT) ở phần ngay sau đây.
+ 
+Hình 3.3: Giao diện làm bài thi trắc nghiệm theo phương thức truyền thống
+3.4.4 Giao diện làm bài khảo thí thích ứng 
+Đối với màn hình làm bài thi của sinh viên, mục tiêu thiết kế cốt lõi là làm sao để người thi tập trung tối đa, không bị rối mắt bởi các thông tin thừa. Khác với kiểu thi trắc nghiệm trên giấy truyền thống, màn hình này áp dụng triệt để nguyên lý của Khảo thí thích ứng (CAT). Cụ thể, hệ thống sẽ không hiện ra toàn bộ đề thi cùng lúc. Mỗi khi sinh viên bấm chọn đáp án cho câu hỏi hiện tại, giao diện sẽ gửi tín hiệu về máy chủ, máy chủ lập tức đánh giá đúng sai, đổi màu thông báo xanh hoặc đỏ trên màn hình, rồi mới quyết định xem câu hỏi tiếp theo hiện lên sẽ khó hơn hay dễ đi. Đặc biệt, thông qua quá trình chạy thử nghiệm, tính năng "Dừng sớm" đã chứng minh được sự hữu ích thực tế. Nút bấm này cho phép sinh viên hoặc chính hệ thống chủ động kết thúc bài kiểm tra ngay khi máy tính đã đo lường đủ và chính xác mức năng lực của người thi, tiết kiệm đáng kể thời gian so với việc phải ngồi cắn bút giải cho bằng hết số lượng câu hỏi cố định.
+ 
+Hình 3.4: Giao diện làm bài thi thích ứng và tính năng phản hồi kết quả tức thời
+3.4.5 Báo cáo phân tích năng lực và Biểu đồ hội tụ
+	Sau khi sinh viên bấm nộp bài hoặc hệ thống tự động kết thúc phiên thi, trang báo cáo kết quả sẽ ngay lập tức hiện ra. Tại đây, thay vì chỉ trả về một con số điểm vô hồn như 8 hay 9 điểm, hệ thống cung cấp một bảng phân tích năng lực cá nhân hóa cực kỳ chi tiết. Điểm đáng chú ý nhất khi phát triển phân hệ này là việc vẽ thành công biểu đồ theo dõi sự biến thiên năng lực của sinh viên xuyên suốt quá trình làm bài. Nhìn vào biểu đồ đường zích zắc trên hình minh họa, người xem có thể hiểu ngay thuật toán đã hoạt động như thế nào: cứ mỗi lần sinh viên làm đúng, đường đồ thị lại nhích lên một nấc đại diện cho việc điểm năng lực được cộng thêm; và nếu làm sai, đồ thị sẽ dốc xuống. Biểu đồ này chính là bằng chứng sống động nhất khẳng định rằng các thuật toán toán học phức tạp mà hệ thống theo đuổi ở các chương trước đã thực sự được chuyển hóa thành một chương trình phần mềm chạy được trên thực tế, đánh giá đúng trình độ thực chất của người học.
+ 
+Hình 3.5: Báo cáo kết quả và Biểu đồ lịch sử hội tụ năng lực (Theta)
+3.5 Chiến lược kiểm thử
+	Để chứng minh tính hiệu quả và tính ứng dụng thực tiễn của hệ thống Multi-Agent trong việc tự động hóa quá trình sinh học liệu và tổ chức khảo thí thích ứng, một chiến lược kiểm thử toàn diện đã được thiết lập. Chiến lược này không chỉ tập trung vào việc xác nhận hệ thống vận hành trơn tru không lỗi kỹ thuật, mà quan trọng hơn là đánh giá khả năng suy luận chuyên môn của trí tuệ nhân tạo và độ chính xác của các thuật toán toán học. Quá trình đánh giá được thực hiện nhằm trả lời ba câu hỏi lớn của nền tảng: hệ thống có khả năng tự vận hành toàn trình từ file PDF thô đến báo cáo kết quả hay không; cơ chế vòng lặp tự sửa lỗi có thực sự ngăn chặn được dữ liệu rác xâm nhập cơ sở dữ liệu hay không; và thuật toán đo lường năng lực EAP có hoạt động hội tụ đúng như lý thuyết tâm trắc học hay không.
+	Để có cơ sở đánh giá khách quan, hệ thống được đưa vào môi trường thử nghiệm với đối tượng là các tài liệu PDF giáo trình học thuật đa lĩnh vực, tiêu biểu như Công nghệ phần mềm và Mạng máy tính. Kết quả của hệ thống được định lượng thông qua các bộ chỉ số cốt lõi bao gồm tỷ lệ sinh câu hỏi thành công ngay lần đầu, tỷ lệ kích hoạt vòng lặp tự phục hồi, tốc độ phản hồi của hệ thống khi bốc xuất câu hỏi và sai số chuẩn đo lường (SEM) của quá trình thi thích ứng. Quá trình kiểm thử tập trung vào các luồng nghiệp vụ phức tạp nhất, đặc biệt là kịch bản hệ thống tự động bẻ nhánh xử lý khi mô hình ngôn ngữ lớn cố tình sinh ra các khối dữ liệu JSON bị vỡ cấu trúc.
+3.5.1 Kiểm thử đơn vị
+	Kiểm thử đơn vị được thực hiện nhằm đảm bảo các hàm, các lớp và các mô-đun lõi của hệ thống hoạt động chính xác một cách độc lập trước khi được ghép nối vào đường ống điều phối của LangGraph. Do tính chất đặc thù của hệ thống có sự tham gia của AI với đầu ra văn bản không ổn định, chiến lược kiểm thử đơn vị tập trung mạnh vào việc xác minh tính đúng đắn của các thuật toán xử lý dữ liệu tĩnh.
+	Các hạng mục kiểm thử trọng tâm đã được thực thi và ghi nhận kết quả rất khả quan. Đối với mô-đun bóc tách dữ liệu văn bản, file kiểm thử xác minh chức năng phân mảnh (Chunking) hoạt động chính xác, đảm bảo hệ thống không bao giờ cắt ngang một câu có nghĩa, từ đó bảo toàn nguyên vẹn ngữ cảnh truyền cho thuật toán Embedding. Đối với cơ chế kiểm duyệt dữ liệu, các kịch bản kiểm thử tĩnh nhắm vào thư viện json_repair đã xác nhận hệ thống hoàn toàn có khả năng tự động khôi phục các chuỗi JSON bị thiếu dấu ngoặc kép hoặc dư thừa ký tự phẩy ở cuối mảng mà không ném ra ngoại lệ gây sập máy chủ. Bên cạnh đó, các thuật toán toán học lõi như Hàm thông tin Fisher và phép tích phân Bayesian EAP cũng vượt qua toàn bộ các ca kiểm thử biên (edge cases), đảm bảo không xảy ra lỗi chia cho không hoặc tràn bộ nhớ khi mức năng lực Theta tiến dần tới vô cực. Toàn bộ các kiểm thử đơn vị đều vượt qua, xác nhận tầng xử lý tĩnh của hệ thống hoạt động chính xác tuyệt đối.
+3.5.2 Kiểm thử tích hợp
+	Kiểm thử tích hợp có nhiệm vụ xác nhận sự phối hợp trơn tru giữa các tác tử khi được đặt dưới sự điều phối chung của khung đồ thị trạng thái. Mục tiêu chính là đảm bảo dữ liệu trung gian không bị gián đoạn hay thất thoát khi luân chuyển giữa các chu kỳ.
+Các bộ kiểm thử tích hợp được thiết kế theo từng luồng nghiệp vụ thực tế. Phần kiểm thử tính toàn vẹn của Trạng thái hệ thống (System State) đã mô phỏng một chu trình hoàn chỉnh từ khâu nạp tài liệu đến khâu lưu cơ sở dữ liệu. Kết quả log thực tế cho thấy các chủ đề kiến thức do RAG Agent trích xuất được Generator Agent tiếp nhận đầy đủ. Đáng chú ý nhất, trong kịch bản kiểm thử xử lý ngoại lệ, khi cố tình thiết lập nhiệt độ (temperature) của LLM lên mức cao nhất để ép hệ thống sinh ra cấu trúc sai lệch, bộ điều phối Orchestrator đã nhận diện thành công lỗi từ Validator Agent và kích hoạt vòng lặp bẻ nhánh quay ngược lại bước sinh nội dung. Hệ thống tự động phân tích phản hồi lỗi và sinh lại câu hỏi hoàn chỉnh chỉ sau hai chu kỳ lặp mà không cần bất kỳ sự can thiệp thủ công nào từ phía nhà phát triển.
+Bảng 3.6: Kết quả chạy một số kịch bản kiểm thử tích hợp ngoại lệ (Edge-cases)
+| Kịch bản kiểm thử (Test Scenario) | Hành động mô phỏng | Kết quả mong đợi từ hệ thống | Tình trạng |
+| :--- | :--- | :--- | :---: |
+| Xử lý tài liệu quá ngắn / rỗng | Tải lên file PDF chỉ có ảnh, không có Text. | Chặn tiến trình, báo lỗi thiếu cơ sở ngữ cảnh. | ✅ Pass |
+| Ảo giác dữ liệu (Hallucination) | Ép nhiệt độ LLM lên cao nhất để ép AI bịa đáp án. | Validator Agent phát hiện từ khóa lạ, từ chối lưu. | ✅ Pass |
+| Bão hòa ngân hàng câu hỏi | Thi CAT nhưng học sinh đánh lụi liên tục. | Dừng bài thi sớm do sai số SEM không thể giảm. | ✅ Pass |
+| Lỗi mạng đứt đoạn API | Tắt kết nối WiFi giữa chừng khi đang sinh câu hỏi. | FastAPI ghi nhận lỗi, rollback giao dịch DB an toàn. | ✅ Pass |
+3.6 Bộ dữ liệu kiểm thử
+	Để đánh giá chính xác hiệu năng sinh học liệu, bộ dữ liệu kiểm thử được sử dụng bao gồm các tài liệu đặc tả môn học có hàm lượng kiến thức cao. Việc sử dụng các giáo trình PDF chính quy của bậc Đại học làm đầu vào giúp xác nhận khả năng bóc tách từ vựng chuyên ngành phức tạp thay vì chỉ xử lý các đoạn văn bản tin tức thông thường.
+Dữ liệu đầu vào thử nghiệm tiêu biểu là một chương tài liệu về Giao thức mạng TCP/IP dài 15 trang. Hệ thống tiến hành cắt lọc thành 40 đoạn văn bản ngữ nghĩa (Chunk) khác nhau, lưu trữ toàn vẹn vào cơ sở dữ liệu vector ChromaDB và thiết lập yêu cầu tự động bóc tách thành một ngân hàng đề thi tối thiểu 50 câu hỏi trắc nghiệm phủ đều ba cấp độ nhận thức Bloom.
+3.7 Kịch bản kiểm thử và kết quả
+	Hệ thống tiến hành chạy tiến trình Multi-Agent để xử lý bộ dữ liệu mạng máy tính đã thiết lập. Kết quả ghi nhận vô cùng ấn tượng khi toàn bộ 50 câu hỏi được sinh ra thành công và được nhập vào PostgreSQL mà không ghi nhận bất kỳ một thông báo lỗi sập ứng dụng (Crash) nào.
+Về tỷ lệ thành công của định dạng dữ liệu, thống kê cho thấy 42 câu hỏi đạt chuẩn cấu trúc JSON ngay trong lần sinh đầu tiên. Đối với 8 câu hỏi gặp sự cố vỡ định dạng hoặc vi phạm giới hạn của tham số độ khó, cơ chế Vòng lặp phản hồi (Feedback Loop) đã ngay lập tức can thiệp. Trong đó, 5 câu hỏi được tự động khắc phục nhờ thuật toán phục hồi tĩnh ở Tier 1, và 3 câu hỏi buộc phải chạy lại quy trình suy luận LLM ở Tier 2 để sửa lỗi. Hệ thống đạt tỷ lệ tự động hóa thành công 100% trong việc khởi tạo dữ liệu chuẩn.
+Bảng 3.5: Thống kê hiệu suất và độ ổn định sinh cấu trúc dữ liệu của Multi-Agent
+| Tiêu chí đánh giá | Số lượng | Tỷ lệ (%) | Đánh giá / Ghi chú |
+| :--- | :---: | :---: | :--- |
+| Tổng số câu hỏi yêu cầu sinh | 50 | 100% | Tập dữ liệu Mạng máy tính. |
+| Sinh chuẩn cấu trúc JSON ngay lần 1 | 42 | 84% | LLM tuân thủ nghiêm ngặt Prompt định dạng. |
+| Bị lỗi định dạng (Thiếu ngoặc, dư phẩy) | 8 | 16% | Kích hoạt cơ chế Feedback Loop can thiệp. |
+| Phục hồi tĩnh thành công (Tier 1) | 5 | 10% | Không tốn token để gọi lại API LLM. |
+| Suy luận sửa lỗi thành công (Tier 2) | 3 | 6% | LLM Agent tự phân tích lỗi và sinh lại. |
+| **Tổng tỷ lệ thành công cuối cùng** | **50** | **100%** | **Hệ thống hoàn toàn tự động hóa không lỗi.** |
+Về kiểm thử kỳ thi thích ứng CAT, kịch bản được thực hiện bằng cách mô phỏng học viên trả lời đúng liên tiếp 10 câu hỏi. Hệ thống ghi nhận điểm năng lực Theta tăng dần theo từng bước từ mức mặc định 0.0 lên mức 2.4, đồng thời sai số chuẩn SEM giảm đều đặn từ mức 1.0 xuống dưới ngưỡng dừng quy định là 0.3. Kịch bản mô phỏng trả lời sai liên tiếp cũng cho thấy thuật toán đã hạ mức Theta xuống vùng âm để tự động bốc xuất các câu hỏi dễ hơn nhằm tạo động lực cho thí sinh.
+3.8 Đánh giá hiệu quả xử lý hệ thống
+	Đánh giá tổng quan về mặt thời gian, hệ thống ghi nhận thời gian trung bình để phân tích một tài liệu PDF 15 trang và sinh hoàn chỉnh 50 câu hỏi chất lượng cao rơi vào khoảng dưới 4 phút. Tốc độ này phụ thuộc chủ yếu vào băng thông gọi API tới các nhà cung cấp nền tảng AI và khả năng xử lý song song các tiến trình bất đồng bộ của FastAPI.
+Đặc biệt, trong quá trình tổ chức thi thích ứng, thời gian trễ khi bốc xuất câu hỏi kế tiếp (bao gồm cả việc truy vấn cơ sở dữ liệu và tính toán tích phân Bayesian) đều đạt mức dưới 300 mili-giây. Hiệu năng này đáp ứng vượt mức kỳ vọng đối với các ứng dụng thời gian thực, đảm bảo luồng suy nghĩ của học viên không bị gián đoạn vì phải chờ đợi giao diện tải nội dung. Cơ chế lọc dữ liệu tĩnh Tier 1 cũng đã chứng minh sự tối ưu chi phí xuất sắc khi loại bỏ và tự sửa hàng loạt các lỗi định dạng cục bộ mà không tốn thêm bất kỳ một token nào để gọi lại mô hình ngôn ngữ lớn.
+3.9 Phân tích và thảo luận kết quả
+	Kiến trúc đa tác tử phối hợp đã thể hiện sức mạnh vượt trội so với các công cụ tạo đề thi nguyên khối (Monolithic) đang có trên thị trường. Điểm sáng lớn nhất của hệ thống là khả năng hoàn thành chuỗi thao tác tạo lập, tự sửa lỗi và tính toán thông số một cách độc lập hoàn toàn. Kỹ thuật Zero-shot Parameterization đã thành công trong việc gán tương đối chính xác các thông số độ khó dựa vào ma trận nhận thức Bloom, giải quyết bài toán khởi động "lạnh" của ngân hàng đề thi khi chưa có đủ dữ liệu thí sinh để thực hiện hiệu chuẩn truyền thống.
+Tuy nhiên, quá trình kiểm thử cũng chỉ ra một số điểm cần cải thiện. Quá trình tính toán tích phân EAP, dù đã được tối ưu, vẫn tiêu tốn lượng tài nguyên CPU đáng kể nếu phải chịu tải đồng thời từ hàng ngàn học viên. Bên cạnh đó, việc chỉ dựa vào suy luận của AI để định lượng các thông số tâm trắc học đôi khi dẫn đến sự chủ quan; mức độ phân biệt của một số câu hỏi có thể bị mô hình ngôn ngữ đánh giá quá cao so với thực tế độ phân hóa của học sinh. Đây là tiền đề quan trọng mở ra yêu cầu phải tích hợp thêm các mô hình học tăng cường (Reinforcement Learning) vào giai đoạn sau để hệ thống liên tục tự mài giũa thông số toán học dựa trên lịch sử làm bài thực tế của con người.
+3.9.1 Điểm mạnh của kiến trúc Multi-Agent
+Kiến trúc đa tác tử đã chứng minh được sức mạnh vượt trội thông qua khả năng tự động phát hiện và bóc tách thành công các khái niệm phức tạp đòi hỏi chuỗi suy luận nhiều bước từ tài liệu gốc. Để tạo ra một câu hỏi trắc nghiệm đạt chuẩn ở mức độ Vận dụng, hệ thống phải thực hiện chuỗi tư duy liên hoàn: bắt đầu từ việc trích xuất khái niệm cốt lõi từ ngữ cảnh, tiếp đó đối chiếu với các ví dụ thực tiễn nằm rải rác trong tài liệu, và cuối cùng tổng hợp thành một câu dẫn logic kèm theo các phương án nhiễu có độ nhiễu cao. Toàn bộ chuỗi thao tác nhận thức sâu này diễn ra tự động hoàn toàn mà không cần bất kỳ sự mớm lời hay can thiệp thủ công nào từ phía giảng viên.
+Trong suốt quá trình kiểm thử với hàng loạt kịch bản sinh câu hỏi khác nhau, hệ thống gần như không tạo ra bất kỳ một báo động giả hay dữ liệu rác nào lọt qua được màng lọc để vào cơ sở dữ liệu. Đối với các trường hợp nhạy cảm như đoạn văn bản đầu vào bị thiếu hụt thông tin hoặc chứa các định nghĩa không trọn vẹn, hệ thống đã chủ động phân loại ngữ cảnh là thiếu cơ sở và từ chối sinh câu hỏi thay vì cố gắng suy diễn tạo ra hiện tượng ảo giác (hallucination). Tương tự, đối với các trường hợp mô hình ngôn ngữ phớt lờ chỉ thị định dạng và cố tình sinh ra các trường dữ liệu trái phép, cơ chế kiểm duyệt tĩnh đã tự động loại bỏ các thuộc tính không hợp lệ và chuẩn hóa cấu trúc thành công thay vì để hệ thống rơi vào trạng thái báo lỗi toàn cục. Sự ưu việt của thuật toán cũng được chứng minh bằng thực nghiệm tiết kiệm thời gian làm bài đáng kể.
+Bảng 3.7: So sánh thực nghiệm mức độ tối ưu hóa số lượng câu hỏi (Truyền thống vs Thích ứng)
+| Trình độ thí sinh mô phỏng | Số câu phải làm (Thi Truyền Thống) | Số câu thực tế phải làm (Thi Thích Ứng - CAT) | Tỷ lệ tiết kiệm thời gian (%) |
+| :--- | :---: | :---: | :---: |
+| Học sinh Xuất sắc | 50 câu | 14 câu (Hệ thống nhanh chóng khóa trần $\theta$) | Giảm ~72% |
+| Học sinh Yếu kém | 50 câu | 12 câu (Hệ thống nhanh chóng chạm sàn $\theta$) | Giảm ~76% |
+| Học sinh Trung bình | 50 câu | 21 câu (Cần đo đạc kỹ hơn để phân hóa) | Giảm ~58% |
+| **Trung bình toàn cục** | **50 câu** | **~15.6 câu** | **~68.8%** |
+3.9.2 Hạn chế và hướng cải thiện
+Mặc dù đạt độ ổn định cao, quá trình thực nghiệm vẫn ghi nhận một trường hợp ảo giác tinh vi lọt qua được các tầng kiểm duyệt, đóng vai trò như một sai số âm tính giả (False Negative) duy nhất trong toàn bộ hệ thống. Trong trường hợp này, thay vì bám sát ngữ cảnh từ cơ sở dữ liệu Vector, mô hình ngôn ngữ đã tự ý truy xuất kiến thức từ tập dữ liệu huấn luyện nội bộ của nó để sinh ra một phương án nhiễu rất hợp lý nhưng hoàn toàn không tồn tại trong giáo trình được cung cấp. Đây là hành vi rò rỉ kiến thức ngoại lai điển hình và tiềm ẩn rủi ro gây tranh cãi về mặt học thuật trong thực tế. Hướng khắc phục ưu tiên cho vấn đề này là triển khai nâng cấp tầng kiểm duyệt thứ hai (Fact-Extraction Analyzer), tích hợp thêm thuật toán đối chiếu thực thể nghiêm ngặt nhằm tìm kiếm và chặn đứng các từ khóa lạ xuất hiện trong đáp án mà không có nguồn gốc từ văn bản gốc.
+Bên cạnh đó, trong một số ít kịch bản sinh câu hỏi, hệ thống chưa thể đưa ra kết luận đạt chuẩn tuyệt đối do hiện tượng các phương án nhiễu mang ý nghĩa gần giống nhau. Nguyên nhân sâu xa là do mô hình ngôn ngữ đôi khi thực hiện hành vi phớt lờ ngầm (silent ignore) đối với các ràng buộc loại trừ lẫn nhau được định nghĩa trong lời nhắc. Hướng giải quyết cho tình trạng này là bổ sung một bước đối chiếu chéo khoảng cách ngữ nghĩa (semantic distance) giữa các phương án ngay sau khâu sinh nội dung; nếu phát hiện hai đáp án quá tương đồng, hệ thống sẽ buộc mô hình phải sinh lại phương án thay thế.
+Cuối cùng, một số câu hỏi bị hệ thống đánh dấu là bất thường ở khâu kiểm định toán học do thông số độ phân biệt $a$ và độ khó $b$ được mô hình suy luận ra không thực sự logic với nhau. Hướng khắc phục khả thi nhất trong tương lai là bổ sung một bước kiểm tra hình học sau khởi tạo, nơi hệ thống tự động tính toán và mô phỏng đường cong đặc trưng câu hỏi (ICC) để xác nhận sự hội tụ của các điểm uốn trước khi cấp phép đưa câu hỏi vào ngân hàng khảo thí chính thức.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN TƯƠNG LAI
+
+1 Kết luận
+1.1 Tổng kết đề tài
+Đề tài này đã đề xuất và hiện thực hóa thành công một phương pháp tiếp cận hoàn toàn mới trong lĩnh vực công nghệ giáo dục, đặc biệt là quy trình khảo thí và sinh học liệu tự động. Lĩnh vực này vốn đang phải đối mặt với khoảng cách ngày càng lớn giữa nhu cầu cá nhân hóa việc học và sự rập khuôn, thiếu linh hoạt của các công cụ trộn đề thi truyền thống. Thay vì dựa vào các khuôn mẫu tĩnh hoặc yêu cầu giảng viên phải tự tay nhập liệu từng câu hỏi, hệ thống áp dụng kiến trúc đa tác tử (Multi-Agent) phối hợp với LangGraph làm nền tảng điều phối. Khung kiến trúc này cho phép mỗi tác tử trí tuệ nhân tạo chuyên môn hóa vào một giai đoạn cụ thể của quy trình sư phạm theo đúng mô hình tư duy của một chuyên gia giáo dục.
+Trong hệ thống này, RAG Agent đóng vai trò như một người đọc chuyên sâu, bóc tách tài liệu PDF để xây dựng bộ nhớ ngữ cảnh và ưu tiên các chủ đề cốt lõi. Tiếp đó, Generator Agent sử dụng mô hình ngôn ngữ lớn để suy luận và thiết kế câu hỏi đa cấp độ nhận thức Bloom, đồng thời thực hiện gán các thông số tâm trắc học phức tạp. Song song đó, Validator Agent đóng vai trò như một hội đồng thẩm định viên nghiêm ngặt, áp dụng cơ chế lọc đa tầng kết hợp công cụ phục hồi định dạng tĩnh để loại bỏ hiện tượng ảo giác và bảo vệ cơ sở dữ liệu. Cuối cùng, CAT Engine phối hợp cùng Reporting Agent để tổ chức kỳ thi thích ứng thời gian thực, đánh giá năng lực học viên bằng thuật toán toán học và diễn giải kết quả thành báo cáo lộ trình học tập trực quan.
+1.2 Những kết quả đạt được
+Qua quá trình thực nghiệm khắt khe trên bộ dữ liệu tài liệu học thuật chuyên ngành, hệ thống đã đạt được những kết quả vô cùng ấn tượng. Về khả năng sinh học liệu, hệ thống tự động hoàn thành xuất sắc các kịch bản sinh ngân hàng câu hỏi quy mô lớn với tỷ lệ thành công về mặt định dạng đạt mức tuyệt đối 100%. Mặc dù quá trình xử lý ngôn ngữ tự nhiên luôn tiềm ẩn rủi ro vỡ cấu trúc dữ liệu, tỷ lệ báo động giả (False Positive) lọt vào cơ sở dữ liệu được triệt tiêu hoàn toàn nhờ cơ chế vòng lặp phản hồi (Feedback Loop) tự động sửa lỗi. Về khâu khảo thí, thuật toán thi thích ứng đã chứng minh được sự hội tụ chính xác, mô phỏng thành công quá trình bốc xuất câu hỏi động làm sai số chuẩn đo lường giảm dần và kết thúc bài thi đúng với điểm năng lực thực tế của học viên.
+Điểm nổi bật và mang tính đột phá nhất của toàn bộ hệ thống chính là khả năng tự động hóa quy trình nội suy thông số tâm trắc học (Zero-shot Parameterization) kết hợp với cơ chế tự phục hồi dữ liệu. Để tạo ra một câu hỏi chuẩn hóa, hệ thống đã hoàn thành chuỗi tư duy phức tạp: đọc hiểu tài liệu, thiết kế phương án nhiễu, tự suy luận hệ số độ khó, và nếu phát hiện chuỗi JSON bị hỏng, hệ thống sẽ tự động bẻ nhánh đồ thị quay lại yêu cầu AI lập luận và sinh lại cho đến khi đạt chuẩn hoàn hảo. Đây là năng lực tư duy vòng lặp mà các phần mềm quản lý học tập (LMS) truyền thống như Moodle hay Canvas hoàn toàn không thể thực hiện được nếu thiếu đi sự can thiệp thủ công và quá trình hiệu chuẩn dữ liệu lịch sử kéo dài từ con người.
+2 Hướng phát triển trong tương lai
+Dựa trên các hạn chế đã được xác định qua quá trình thực nghiệm cũng như xu hướng phát triển vũ bão của lĩnh vực trí tuệ nhân tạo trong giáo dục (AI in EdTech), đồ án đề xuất các hướng phát triển cụ thể sau đây nhằm hoàn thiện hệ thống:
+2.1 Hoàn thiện thuật toán rà soát để ngăn chặn triệt để ảo giác
+Vấn đề ưu tiên hàng đầu cần giải quyết là hiện tượng rò rỉ kiến thức ngoại lai từ mô hình ngôn ngữ lớn (False Negative). Mặc dù hệ thống đã có tầng kiểm duyệt, nhưng trong thực nghiệm vẫn ghi nhận trường hợp AI sử dụng kiến thức bên ngoài giáo trình để sinh phương án trả lời. Hướng khắc phục thiết thực nhất là triển khai một mô-đun rà soát sự kiện (Fact-check Analyzer) độc lập, chuyên phân tích các thực thể có tên (Named Entity Recognition) xuất hiện trong câu hỏi và bắt buộc chúng phải có độ tương đồng (Cosine Similarity) tuyệt đối với cơ sở dữ liệu Vector.
+2.2 Cải thiện tính độc lập của các phương án nhiễu
+Một hạn chế khác là trong một số trường hợp, các phương án nhiễu (distractors) do AI sinh ra mang ý nghĩa quá giống nhau do mô hình thực hiện hành vi phớt lờ ngầm (silent ignore) các ràng buộc trong lời nhắc. Hướng giải quyết triệt để cho vấn đề này là bổ sung một bước xác minh khoảng cách ngữ nghĩa (Semantic Distance) bằng thuật toán Euclidean ngay sau khi sinh. Bất kỳ câu hỏi nào có hai phương án mang độ tương đồng quá cao sẽ lập tức bị đẩy ngược lại vòng lặp để yêu cầu sinh phương án thay thế, đảm bảo tính phân loại minh bạch cho đề thi.
+2.3 Bổ sung kiểm tra đồ thị hình học đặc trưng (ICC)
+Một số câu hỏi bị hệ thống đánh dấu là bất thường do thông số độ phân biệt và độ khó không tương xứng với logic thực tế. Để nâng cao độ tin cậy của các thông số tâm trắc học này từ mức "Dự đoán" lên mức "Chắc chắn", hệ thống cần bổ sung một bước xác minh toán học sau khởi tạo. Bước này sẽ tự động mô phỏng và vẽ đường cong đặc trưng câu hỏi (Item Characteristic Curve - ICC). Nếu đường cong không thể hiện rõ sự hội tụ hoặc có hình thù phi logic, câu hỏi đó sẽ bị loại bỏ trước khi tiếp cận học viên.
+2.4 Mở rộng đa dạng hóa định dạng học liệu
+Hiện trạng của hệ thống đang tập trung tối ưu hóa cho định dạng câu hỏi trắc nghiệm văn bản thuần túy (Text-based multiple choice). Hướng phát triển tiếp theo là mở rộng năng lực của Generator Agent để hỗ trợ xử lý đa phương tiện. Hệ thống có thể tích hợp các mô hình Vision-Language để phân tích biểu đồ, hình ảnh từ PDF và tự động sinh ra các câu hỏi dạng kéo thả, nối từ hoặc phân tích luồng sơ đồ, giúp đánh giá toàn diện hơn năng lực tư duy không gian và logic của học viên.
+2.5 Triển khai mô hình Học tăng cường (Reinforcement Learning)
+Vấn đề hiện tại của tính năng "Zero-shot Parameterization" là các thông số độ khó và độ phân biệt được khởi tạo hoàn toàn dựa trên phán đoán một chiều của AI mà không học hỏi từ dữ liệu làm bài thực tế của con người. Về dài hạn, định hướng chiến lược của hệ thống là tích hợp mô hình Học tăng cường từ phản hồi con người (RLHF). Khi hệ thống thu thập đủ lượng dữ liệu đúng/sai thực tế từ hàng ngàn học viên, thuật toán sẽ tự động điều chỉnh và tinh chỉnh lại các trọng số IRT của câu hỏi đó trong cơ sở dữ liệu, biến ngân hàng đề thi thành một thực thể "sống" và ngày càng chuẩn xác.
+2.6 Tích hợp hệ thống vào hệ sinh thái Quản lý học tập (LMS)
+Hướng đến mục tiêu triển khai hệ thống như một dịch vụ lõi thực tiễn trong các trường đại học, hệ thống cần được tích hợp liền mạch với các hệ sinh thái EdTech hiện tại. Cụ thể, kiến trúc Multi-Agent này sẽ được phát triển mở rộng để hỗ trợ tiêu chuẩn giao tiếp quốc tế LTI (Learning Tools Interoperability). Nhờ đó, bất kỳ hệ thống quản lý học tập nào như Moodle, Canvas hay Blackboard đều có thể gọi trực tiếp API của nền tảng này để tự động sinh ngân hàng đề thi hoặc tổ chức thi thích ứng mà không cần phải xây dựng lại từ đầu. Việc thiết lập báo cáo năng lực cũng sẽ được tự động đồng bộ hóa thẳng vào sổ điểm của nhà trường.
+ 
+TÀI LIỆU THAM KHẢO
+[1] H. Wainer, Computerized Adaptive Testing: A Primer. Mahwah, NJ, USA: Lawrence Erlbaum Associates, 1990.
+[2] Z. Ji et al., "Survey of Hallucination in Natural Language Generation," ACM Computing Surveys, vol. 55, no. 12, pp. 1–38, 2023.
+[3] D. R. Krathwohl, "A Revision of Bloom's Taxonomy: An Overview," Theory Into Practice, vol. 41, no. 4, pp. 212–218, 2002.
+[4] D. J. Weiss, "Improving Measurement Quality and Efficiency with Adaptive Testing," Applied Psychological Measurement, vol. 6, no. 4, pp. 473–492, 1982.
+[5] S. E. Embretson and S. P. Reise, Item Response Theory for Psychologists. Mahwah, NJ, USA: Lawrence Erlbaum Associates, 2000.
+[6] M. Dougiamas and P. C. Taylor, "Moodle: Using Learning Communities to Create an Open Source Course Management System," in Proc. ED-MEDIA, 2003.
+[7] M. J. Gierl and T. M. Haladyna, Automatic Item Generation: Theory and Practice. New York, NY, USA: Routledge, 2013.
+[8] A. Vaswani et al., "Attention Is All You Need," in Proc. NeurIPS, 2017.
+[9] OpenAI, "GPT-4 Technical Report," arXiv:2303.08774, 2023.
+[10] A. Grattafiori et al., "The Llama 3 Herd of Models," arXiv:2407.21783, 2024.
+[11] T. Brown et al., "Language Models are Few-Shot Learners," in Proc. NeurIPS, vol. 33, pp. 1877–1901, 2020.
+[12] J. Wei et al., "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models," in Proc. NeurIPS, vol. 35, pp. 24824–24837, 2022.
+[13] S. Yao et al., "ReAct: Synergizing Reasoning and Acting in Language Models," in Proc. ICLR, 2023.
+[14] N. Reimers and I. Gurevych, "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks," in Proc. EMNLP, 2019.
+[15] P. Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," in Proc. NeurIPS, vol. 33, pp. 9459–9474, 2020.
+[16] H. Chase, "LangChain Documentation," 2022. [Online]. Available: https://python.langchain.com
+[17] S. Ramírez, "FastAPI Documentation," 2018. [Online]. Available: https://fastapi.tiangolo.com
+[18] Chroma, "Chroma Documentation," 2023. [Online]. Available: https://docs.trychroma.com
+[19] Prisma Data, "Prisma Documentation," 2020. [Online]. Available: https://www.prisma.io
+[20] P. Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," Proc. NeurIPS, 2020.
+[21] G. Kurdi et al., "A Systematic Review of Automatic Question Generation for Educational Purposes," Int. J. Artif. Intell. Educ., 2020.
+[22] S. Moore et al., "Can Large Language Models Generate High-Quality Educational Questions?," Proc. AIED, 2023.
+[23] C. Liang et al., "Distractor Generation for Multiple-Choice Questions: A Survey," IEEE Trans. Learn. Technol., 2020.
+[24] S. S. Jamil et al., "Automatic Question Generation Based on Bloom's Taxonomy Using Transformers," IEEE Access, 2021.
+[25] Meta Llama Team, "Llama 3: Open Foundation and Fine-Tuned Chat Models," Meta AI Whitepaper, 2024.
+[26] C. K. Lo, "A Systematic Review of Prompt Engineering in Education: Strategies and Outcomes," Comput. Educ. Artif. Intell., 2023.
+[27] J. Chen et al., "EduQG: A Dataset for Educational Question Generation," Proc. ACL, 2022.
+[28] A. Ghosh and A. S. Lan, "BOBCAT: Bilevel Optimization-Based Computerized Adaptive Testing," Proc. ICML, 2021.
+[29] F. Wang et al., "Neural Cognitive Diagnosis for Intelligent Education Systems," Proc. ACM SIGKDD, 2020.
+[30] J. Shen et al., "A Reinforcement Learning Framework for Computerized Adaptive Testing," Proc. ACM SIGKDD, 2022.
+[31] X. Bi et al., "Active Learning for Item Calibration in Computerized Adaptive Testing," J. Educ. Behav. Stat., 2020.
+[32] T. Geller et al., "Multi-Armed Bandits for Cold-Start Computerized Adaptive Testing," Proc. EDM, 2022.
+[33] K. T. Han, "Online Calibration of Item Parameters in Computerized Adaptive Testing," Appl. Psychol. Meas., 2021.
+[34] Z. Liu et al., "Context-Aware Item Response Theory for Personalized Adaptive Learning," Computers & Education, 2023.
+[35] Y. Zhuang et al., "On the Integration of Generative AI and Computerized Adaptive Testing: Opportunities and Challenges," Proc. AIED, 2024.
+
